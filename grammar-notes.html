@@ -15,7 +15,6 @@
             --red-margin: #fca5a5;
             --blue-line: #bae6fd;
             --paper-bg: #fdfbf7;
-            /* OPTIMIZED FOR MOBILE: Tighter line height to fit more content */
             --line-height: 2rem; 
         }
 
@@ -39,8 +38,9 @@
             max-width: 500px;
             height: 100vh;
             max-height: 900px;
-            perspective: 2000px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            /* Shorter perspective exaggerates foreshortening, giving the illusion of a physical bend */
+            perspective: 1400px; 
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
         }
 
         @media (min-width: 500px) {
@@ -50,21 +50,66 @@
             }
         }
 
+        /* ---------------------------------------------------
+           ULTRA-REALISTIC 3D PAPER PHYSICS
+           --------------------------------------------------- */
         .page {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            transform-origin: left center;
-            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s ease-in-out;
+            transform-origin: 0% 50%; /* Bound to the left spine */
+            
+            /* Slow, heavy, graceful 2-second pull */
+            transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s ease-in-out;
             transform-style: preserve-3d;
+            
+            /* Naturally disappears exactly when it reaches 90 degrees vertical */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            
             background-color: var(--paper-bg);
-            border-left: 2px solid rgba(0,0,0,0.1);
+            border-left: 2px solid rgba(0,0,0,0.15);
+            box-shadow: inset 4px 0 10px rgba(0,0,0,0.08), 5px 5px 15px rgba(0,0,0,0.08);
+        }
+
+        /* The Bending Light Illusion: This gradient rolls across the page to simulate a curl */
+        .page::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Structure: Ambient -> Shadow -> Bright Specular Highlight -> Deep Shadow -> Ambient */
+            background: linear-gradient(
+                to right,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0.1) 25%,
+                rgba(255,255,255,0.65) 45%,
+                rgba(0,0,0,0.35) 50%,
+                rgba(255,255,255,0.4) 55%,
+                rgba(0,0,0,0) 100%
+            );
+            /* Make the gradient 3x wider than the page so we can slide it across */
+            background-size: 300% 100%;
+            background-position: 150% 0; /* Hidden off the right side initially */
+            
+            transition: background-position 2s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 10;
         }
 
         .page.flipped {
-            transform: rotateY(-180deg);
-            opacity: 0;
+            /* 1. RotateY flips it.
+               2. TranslateZ lifts it physically off the stack so it arcs through the air.
+               3. RotateX and RotateZ twist it as if pulled from the bottom right corner.
+            */
+            transform: rotateY(-180deg) rotateX(2deg) rotateZ(-1deg) translateZ(15px) scale(0.99);
             pointer-events: none;
+        }
+
+        .page.flipped::after {
+            /* As the page turns, the "curl" lighting sweeps all the way across to the left */
+            background-position: -50% 0; 
+            opacity: 0.85; 
         }
 
         @media (min-width: 500px) {
@@ -114,19 +159,17 @@
             overflow-x: hidden;
             background-color: var(--paper-bg);
             
-            /* Pushed margin to the far left to save space */
             background-image: 
                 linear-gradient(90deg, transparent 1.3rem, var(--red-margin) 1.3rem, var(--red-margin) 1.45rem, transparent 1.45rem),
                 linear-gradient(var(--blue-line) 1px, transparent 1px);
             background-size: 100% 100%, 100% var(--line-height);
             background-attachment: local; 
             
-            /* Padding aligns exactly with the background grid */
             padding: calc(var(--line-height) * 2) 0.75rem 4rem 2rem; 
             
             font-family: 'Kalam', cursive;
-            font-size: 1.1rem; /* Scaled down slightly */
-            line-height: var(--line-height); /* Strict locking to ruling */
+            font-size: 1.1rem; 
+            line-height: var(--line-height); 
             color: var(--pen-color);
         }
 
@@ -136,7 +179,6 @@
         h1, h2, h3, p, ul, ol, .table-wrapper {
             margin: 0;
             padding: 0;
-            /* Margins must be exact multiples of line-height to prevent overlap */
             margin-bottom: var(--line-height); 
         }
         
@@ -146,7 +188,6 @@
             text-decoration: underline;
             text-decoration-style: wavy;
             text-decoration-color: var(--pen-color);
-            /* Headings take exactly 1 line height to stay on the grid */
             line-height: var(--line-height); 
         }
         
@@ -167,15 +208,14 @@
         .notes-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.95rem; /* Smaller table text */
-            /* Table rows must also align with the grid as much as possible */
+            font-size: 0.95rem; 
             line-height: 1.3rem; 
-            min-width: 320px; /* Adjusted for smaller phone screens */
+            min-width: 320px; 
         }
 
         .notes-table th, .notes-table td {
             border: 2px solid var(--pen-color);
-            padding: 4px 8px; /* Tighter padding */
+            padding: 4px 8px; 
             text-align: left;
             vertical-align: middle;
         }
@@ -249,6 +289,18 @@
             font-weight: 600;
             text-decoration: none;
             backdrop-filter: blur(5px);
+            z-index: 1001; /* Keep above pages */
+        }
+        
+        .index-link {
+            display: block;
+            cursor: pointer;
+            color: var(--pen-color);
+            transition: color 0.2s, transform 0.2s;
+        }
+        .index-link:active {
+            color: #ea580c;
+            transform: scale(0.98) translateX(5px);
         }
     </style>
 </head>
@@ -268,9 +320,22 @@
                 Open to preview →
             </div>
         </div>
-
-        <!-- PAGE 1: HELPING VERBS TEASER -->
+        
+        <!-- PAGE 1: INDEX -->
         <div class="page" id="page-1" style="z-index: 99;">
+            <div class="paper-content">
+                <h2>Index</h2>
+                <ol>
+                    <li><span class="index-link" onclick="flipTo(2)">Helping Verbs</span></li>
+                    <li><span class="index-link" onclick="flipTo(3)">Verb Forms (V1 to V5)</span></li>
+                    <li><span class="index-link" onclick="flipTo(4)">Coming Soon...</span></li>
+                </ol>
+            </div>
+            <div class="page-num">pg. 1</div>
+        </div>
+
+        <!-- PAGE 2: HELPING VERBS TEASER -->
+        <div class="page" id="page-2" style="z-index: 98;">
             <div class="paper-content">
                 <h2>1. Helping Verbs (Trishul)</h2>
                 <p>These 3 words dictate the time of action:</p>
@@ -300,11 +365,11 @@
                 </div>
                 <p>Always identify the helping verb first!</p>
             </div>
-            <div class="page-num">pg. 1</div>
+            <div class="page-num">pg. 2</div>
         </div>
 
-        <!-- PAGE 2: VERB FORMS TEASER -->
-        <div class="page" id="page-2" style="z-index: 98;">
+        <!-- PAGE 3: VERB FORMS TEASER -->
+        <div class="page" id="page-3" style="z-index: 97;">
             <div class="paper-content">
                 <h2>2. Verb Forms (V1 to V5)</h2>
                 <div class="table-wrapper">
@@ -336,18 +401,18 @@
                     </table>
                 </div>
             </div>
-            <div class="page-num">pg. 2</div>
+            <div class="page-num">pg. 3</div>
         </div>
 
-        <!-- PAGE 3: COMING SOON -->
-        <div class="page" id="page-3" style="z-index: 97;">
+        <!-- PAGE 4: COMING SOON -->
+        <div class="page" id="page-4" style="z-index: 96;">
             <div class="paper-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-right: 2rem;">
                 <h1 style="font-size: 2.2rem; color: #ea580c; text-decoration: none; transform: rotate(-3deg);">Final Version</h1>
                 <h1 style="font-size: 2.2rem; color: #ea580c; text-decoration: none; transform: rotate(-3deg);">Coming Soon!</h1>
                 <p style="font-size: 1.3rem; margin-top: var(--line-height); color: #000;">Stay tuned for the complete Master Tables, Pronouns, Modals, and more.</p>
                 <p style="font-size: 2rem;">⏳ 📖 ✨</p>
             </div>
-            <div class="page-num">pg. 3</div>
+            <div class="page-num">pg. 4</div>
         </div>
 
     </div>
@@ -395,6 +460,32 @@
                 pages[currentPage].classList.remove('flipped');
                 updateButtons();
             }
+        }
+
+        // The Thumb-Flick Cascade
+        async function flipTo(targetPage) {
+            vibrate();
+            // Increased delay to 250ms to accommodate the slower 2-second animations
+            // This ensures cascading pages overlap beautifully without snapping
+            const delay = 250; 
+            
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+
+            if (targetPage > currentPage) {
+                while (currentPage < targetPage) {
+                    pages[currentPage].classList.add('flipped');
+                    currentPage++;
+                    await new Promise(r => setTimeout(r, delay));
+                }
+            } else if (targetPage < currentPage) {
+                while (currentPage > targetPage) {
+                    currentPage--;
+                    pages[currentPage].classList.remove('flipped');
+                    await new Promise(r => setTimeout(r, delay));
+                }
+            }
+            updateButtons();
         }
 
         document.addEventListener('keydown', (e) => {
