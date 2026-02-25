@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Learn English The Practical Way</title>
+    
+    <!-- PWA Installability Meta Tags -->
+    <meta name="theme-color" content="#02000a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="English">
+    
+    <!-- Base64 Encoded Web App Manifest & App Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMzOGJkZjgiPjxwYXRoIGQ9Ik00IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJIMjB2MjBINi41YTIuNSAyLjUgMCAwIDEgMC01SDIwIj48L3BhdGg+PC9zdmc+">
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkxlYXJuIEVuZ2xpc2ggVGhlIFByYWN0aWNhbCBXYXkiLCAic2hvcnRfbmFtZSI6ICJMZWFybiBFbmdsaXNoIiwgInN0YXJ0X3VybCI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwMjAwMGEiLCAidGhlbWVfY29sb3IiOiAiIzAyMDAwYSIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSGRwWkhSb1BTSXhPVElpSUdobGFXZG9kRDBpTVRreUlpQjJhV1YzUW05NFBTSXdJREFnTWpRZ01qUWlJR1pwYkd3OUlpd3pPR0prWmpnaVBqeHdZWFJvSUdROUlrMDBJREU1TGpWMkxURTFRVEl1TlNBeUxqVWdNQ0F3SURFZ05pNDFJRElJTWpCMk1qQklOaTRxWVRJdU5TQXlMalVnTUNBd0SURWdNQzAxSURJd0lqNDhMM0JoZEdnK1BDOXpkbWMrIiwgInNpemVzIjogIjE5MngxOTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap');
+
+        :root {
+            /* Advanced Custom Easings - Slower, more fluid, and graceful */
+            --spring-bounce: cubic-bezier(0.2, 1.1, 0.3, 1);
+            --spring-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+            --ios-nav: cubic-bezier(0.25, 1, 0.3, 1);
+            
+            --bg-deep: #02000a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: #ffffff;
+            overscroll-behavior-y: none; 
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, .font-outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Fluid Animated Background - Reacts to scroll */
+        .aurora-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #02000a, #0f0518, #070b19, #13051a);
+            background-size: 300% 300%;
+            animation: gradient-shift 18s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: screen;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
+
+        .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: rgba(99, 102, 241, 0.6); filter: blur(70px); }
+        .blob-2 { top: 40%; right: -20%; width: 60vw; height: 60vw; background: rgba(168, 85, 247, 0.5); filter: blur(90px); }
+        .blob-3 { bottom: -20%; left: 20%; width: 70vw; height: 70vw; background: rgba(56, 189, 248, 0.4); filter: blur(80px); }
+
+        #app-container {
+            position: relative;
+            width: 100vw;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* View Routing Architecture */
+        .view-section {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            min-height: 100vh;
+            visibility: hidden;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateX(100%); 
+            transition: transform 0.8s var(--ios-nav), opacity 0.8s var(--ios-nav);
+            will-change: transform, opacity;
+        }
+
+        .view-section.active {
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+            transform: translateX(0);
+            position: relative; /* Allows page to dictate scroll height */
+        }
+
+        .view-section.slide-left-out {
+            transform: translateX(-30%) scale(0.95);
+            opacity: 0;
+            position: absolute;
+        }
+        
+        .view-section.slide-right-out {
+            transform: translateX(100%);
+            opacity: 0;
+            position: absolute;
+        }
+
+        /* Staggered Elastic List Items */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+            will-change: transform, opacity;
+        }
+
+        .stagger-item.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.8s ease-out, transform 1.2s var(--spring-bounce);
+        }
+
+        /* Hyper-Glassmorphism Interactive Cards */
+        .interactive-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.7s var(--spring-bounce), border-color 0.5s ease, background 0.5s ease;
+            will-change: transform;
+            transform-origin: center center;
+        }
+
+        .interactive-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        /* State applied by JS touch events */
+        .interactive-card.is-pressed {
+            transform: scale(0.96) translateY(2px);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            transition: transform 0.4s var(--spring-smooth), border-color 0.4s ease, background 0.4s ease;
+        }
+        .interactive-card.is-pressed::after {
+            opacity: 1;
+        }
+
+        /* Action Buttons */
+        .action-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s var(--spring-bounce);
+        }
+        .interactive-card.is-pressed .action-btn {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(12px);
+            margin-bottom: 24px;
+            transition: transform 0.7s var(--spring-bounce), background 0.4s;
+        }
+        .back-btn.is-pressed {
+            transform: scale(0.94) translateX(-2px);
+            background: rgba(255,255,255,0.15);
+            transition: transform 0.2s ease;
+        }
+
+        /* Gradients */
+        .text-gradient {
+            background: linear-gradient(to right, #c084fc, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Toast Engine */
+        #toast-container {
+            position: fixed;
+            bottom: -100px; left: 0; right: 0;
+            display: flex; justify-content: center;
+            pointer-events: none;
+            transition: transform 0.6s var(--spring-bounce), opacity 0.4s ease;
+            z-index: 100;
+            opacity: 0;
+        }
+        #toast-container.show {
+            transform: translateY(-130px);
+            opacity: 1;
+        }
+        .toast {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fluid Scroll-Reactive Background -->
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1" id="blob1"></div>
+        <div class="aurora-blob blob-2" id="blob2"></div>
+        <div class="aurora-blob blob-3" id="blob3"></div>
+    </div>
+
+    <div id="app-container">
+        <!-- ==========================================
+             VIEW 1: HOME PAGE
+             ========================================== -->
+        <main id="view-home" class="view-section active max-w-[480px] mx-auto px-5 py-12">
+            
+            <header class="mb-10 text-center stagger-item">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-white/5 border border-white/10 mb-6 shadow-[0_0_40px_rgba(139,92,246,0.15)] backdrop-blur-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs><linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c084fc" /><stop offset="100%" stop-color="#38bdf8" /></linearGradient></defs>
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                    </svg>
+                </div>
+                <h1 class="text-4xl font-extrabold tracking-tight mb-3">Learn English <br><span class="text-gradient">The Practical Way</span></h1>
+                <p class="text-gray-400 text-base font-medium px-4 leading-relaxed">Immerse yourself in native content and master the language naturally.</p>
+            </header>
+
+            <!-- External Links / Routes Grid -->
+            <div class="grid grid-cols-2 gap-4 mb-12 stagger-item">
+                <div class="interactive-card touch-target rounded-[24px] p-6 flex flex-col items-center justify-center text-center cursor-pointer" data-action="route:view-webseries">
+                    <div class="w-14 h-14 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-3 border border-indigo-500/20">📺</div>
+                    <h2 class="text-lg font-bold text-white tracking-wide">Webseries</h2>
+                    <p class="text-xs text-gray-400 mt-1">Watch & Learn</p>
+                </div>
+                
+                <div class="interactive-card touch-target rounded-[24px] p-6 flex flex-col items-center justify-center text-center cursor-pointer" data-action="link:https://www.youtube.com/playlist?list=PLlfRim4hNW66zEUyNh7Q0Gd3A1gWS49RA">
+                    <div class="w-14 h-14 rounded-full bg-fuchsia-500/10 text-fuchsia-400 flex items-center justify-center text-2xl mb-3 border border-fuchsia-500/20">🎵</div>
+                    <h2 class="text-lg font-bold text-white tracking-wide">Music</h2>
+                    <p class="text-xs text-gray-400 mt-1">Listen & Vibe</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 mb-6 stagger-item">
+                <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
+                <h2 class="text-xl font-bold text-white/80 tracking-widest uppercase text-sm">Master Prompts</h2>
+                <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
+            </div>
+
+            <!-- Prompts injected here automatically -->
+            <div id="prompts-container" class="flex flex-col gap-5 pb-20">
+                <!-- Data injected via initData() -->
+            </div>
+        </main>
+
+        <!-- ==========================================
+             VIEW 2: WEBSERIES PAGE
+             ========================================== -->
+        <main id="view-webseries" class="view-section max-w-[480px] mx-auto px-5 py-12">
+            <button class="back-btn touch-target stagger-item" data-action="back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Home
+            </button>
+            <h1 class="text-4xl font-extrabold tracking-tight mb-8 stagger-item">Essential <span class="text-gradient">Webseries</span></h1>
+            
+            <div class="flex flex-col gap-4" id="webseries-list">
+                <!-- Data injected via initData() -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-container">
+        <div class="toast">
+            <div class="flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-tr from-emerald-400 to-cyan-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="tracking-wide" id="toast-message">Copied to clipboard!</span>
+        </div>
+    </div>
+
+    <script>
+        /* ==================================================================
+           WEBSERIES CONFIGURATION
+           ================================================================== */
+        const webseriesData = [
+            { title: "Extra English", desc: "A classic sitcom built specifically for language learners.", tag: "Beginner", color: "emerald", link: "https://www.youtube.com/watch?v=DjufuMDV9D8&list=PLiSXvPiNzG5L-xuQETbubWE4Ejabr2l3X" },
+            { title: "Mind Your Language", desc: "Hilarious classic showing diverse students learning English.", tag: "Comedy", color: "indigo", link: "https://youtu.be/iCxzOTQ_LYg?si=FIJxKb2y9QyW1rGg" },
+            { title: "Young Sheldon", desc: "Great for learning everyday American family vocabulary.", tag: "Family", color: "blue", link: "https://drive.google.com/drive/folders/1dIKlJUaWzFdNyJDUBFS8xl9EhMfO6Wyn?usp=sharing" },
+            { title: "Movies", desc: "A curated list of easy-to-understand Hollywood films.", tag: "General", color: "purple", link: "https://drive.google.com/drive/folders/1dIKlJUaWzFdNyJDUBFS8xl9EhMfO6Wyn?usp=sharing" },
+            { title: "Suits", desc: "Perfect for advanced corporate and business English.", tag: "Advanced", color: "fuchsia", link: "https://drive.google.com/drive/folders/1dIKlJUaWzFdNyJDUBFS8xl9EhMfO6Wyn?usp=sharing" }
+        ];
+
+        /* ==================================================================
+           DATA CONFIGURATION - EDIT YOUR PROMPTS HERE
+           ================================================================== */
+        const promptsData = [
+            {
+                title: "The Witty Roaster",
+                tag: "Conversation",
+                tagColor: "indigo",
+                desc: "Natural, spoken English conversation about real-life topics with a witty, humorous personality.",
+                content: `# PROMPT 1: CONVERSATION (THE WITTY ROASTER V2.3)
+
+**Role:** You are my English speaking practice partner.
+**User Context:** I am from India, I know Hindi and some English.
+**Goal:** Natural, spoken English conversation about real-life topics with a **witty, humorous personality.**
+**Constraint:** This is NOT a grammar class.
+
+---
+
+## CORE BEHAVIORS
+
+### 1. The Persona (The Funny Friend)
+* **Vibe:** Friendly but playful, witty, and expressive.
+* **Humor:** Use light sarcasm, exaggeration, and relatable Indian context (e.g., traffic, spicy food, nosy neighbors).
+* **Reaction:** Never be boring. Use interjections like: "Oh no!", "Seriously?", "Yikes!", "Haha!"
+* **Sentence Length:** Strict **6–12 words**. Speak like a human texting, not a textbook.
+
+### 2. The "Roast" Rule (Strict)
+* **Trigger:** If I reply with **less than 5 words**.
+* **Action:** You MUST roast me playfully.
+* *Examples:*
+    * "Only two words? Are you paying for words with gold?"
+    * "Lazy! Speak in a full sentence, please."
+    * "Come on, give me a real sentence, not just a sound!"
+
+### 3. The "Two-Way Street" Rule
+* **Trigger:** If I go **3 turns** without asking YOU a question (no "?" detected).
+* **Action:** Stop the flow and say exactly:
+    > "Hey, I feel like I am interrogating you! Ask me a question back!"
+
+### 4. The "No Hindi" Rule
+* **Trigger:** If I speak Hindi or any other language.
+* **Action:** Immediately say:
+    > "Beep beep! Speak English only! Stop."
+    *(Repeat until I speak English).*
+
+### 5. No Grammar Police
+* **Never** correct my grammar.
+* **Never** explain rules.
+* Focus purely on keeping the chat fun and flowing.
+
+---
+
+## SESSION FLOW
+
+### Step 1: The Greeting
+Start every session with energy:
+> "Hi! Ready to chat? Pick a topic from the list, **or tell me your own topic**:"
+
+### Step 2: The Menu
+Show this list immediately after the greeting:
+1.  Everyday Life & Drama
+2.  Food & Cravings
+3.  Shopping & Money
+4.  Travel & Adventures
+5.  School / College / Work Life
+6.  Friends & Gossip
+7.  Health & Fitness
+8.  Festivals & Chaos
+9.  Technology & Phones
+10. Movies & Entertainment
+11. Future & Dreams
+
+### Step 3: The Trigger
+* **If I pick a list topic OR a custom topic:**
+    > "Ok, press the live speak button to start talking on the topic."
+* **If I ask YOU to choose:** (Pick a real, practical topic)
+    > "Ok, press the live speak button to start talking on the topic."`
+            },
+            {
+                title: "The Echo V2.5",
+                tag: "Corrections",
+                tagColor: "emerald",
+                desc: "Subtly corrects your mistakes by repeating your sentence perfectly, then keeping the chat funny.",
+                content: `# PROMPT 2: CONVERSATION + CORRECTIONS (THE ECHO V2.5)
+
+**Role:** You are my English speaking practice partner.
+**User Context:** I am from India, I know Hindi and some English.
+**Goal:** Natural conversation where you **subtly correct my mistakes** by repeating my sentence perfectly, then keeping the chat funny.
+**Constraint:** This is NOT a grammar class.
+
+---
+
+## CORE BEHAVIORS
+
+### 1. The "Perfect Echo" Rule (CRITICAL NEW RULE)
+**Before you reply to the content, you must FIX my English.**
+* **The Rule:** Start EVERY response by repeating exactly what I meant to say, but in **perfect, natural English**.
+* **Format:** Put this correction in **Bold** at the very top.
+* **Then:** Leave a blank line and start your witty/funny response.
+* *Example:*
+    * **Me:** "Yesterday I go market."
+    * **You:** "**Yesterday, I went to the market.**
+    
+    Did you buy anything tasty or just boring vegetables?"
+
+### 2. The Persona (The Funny Friend)
+* **Vibe:** Friendly but playful, witty, and expressive.
+* **Humor:** Use light sarcasm, exaggeration, and relatable Indian context (traffic, spicy food, nosy neighbors).
+* **Reaction:** Never be boring. Use interjections like: "Oh no!", "Seriously?", "Yikes!", "Haha!"
+* **Sentence Length:** Strict **6–12 words** (for your conversational part only).
+
+### 3. The "Roast" Rule (Strict)
+* **Trigger:** If I reply with **less than 5 words**.
+* **Action:** You MUST roast me playfully (after the Echo).
+* *Example:*
+    * **Me:** "It good."
+    * **You:** "**It is good.**
+    
+    Only two words? Are you paying for data per letter? Speak more!"
+
+### 4. The "Two-Way Street" Rule
+* **Trigger:** If I go **3 turns** without asking YOU a question (no "?" detected).
+* **Action:** Stop the flow and say exactly:
+    > "Hey, I feel like I am interrogating you! Ask me a question back!"
+
+### 5. The "No Hindi" Rule
+* **Trigger:** If I speak Hindi or any other language.
+* **Action:** Immediately say:
+    > "Beep beep! Speak English only! Stop."
+
+---
+
+## SESSION FLOW
+
+### Step 1: The Greeting
+Start every session with energy:
+> "Hi! Ready to chat? Pick a topic from the list, **or tell me your own topic**:"
+
+### Step 2: The Menu
+Show this list immediately after the greeting:
+1.  Everyday Life & Drama
+2.  Food & Cravings
+3.  Shopping & Money
+4.  Travel & Adventures
+5.  School / College / Work Life
+6.  Friends & Gossip
+7.  Health & Fitness
+8.  Festivals & Chaos
+9.  Technology & Phones
+10. Movies & Entertainment
+11. Future & Dreams
+
+### Step 3: The Trigger
+* **If I pick a list topic OR a custom topic:**
+    > "Ok, press the live speak button to start talking on the topic."
+* **If I ask YOU to choose:** (Pick a real, practical topic)
+    > "Ok, press the live speak button to start talking on the topic."`
+            },
+            {
+                title: "Shadowing Drill",
+                tag: "Pronunciation",
+                tagColor: "fuchsia",
+                desc: "Strict drill mode to improve pronunciation through exact repetition. Sarcastic and strict.",
+                content: `# PROMPT 3: SHADOWING DRILL (THE SARCASTIC ECHO)
+
+**Role:** You are a strict Shadowing Engine.
+**Goal:** Improve my pronunciation and fluency through "Shadowing" (Repeating exactly what I hear).
+**Tone:** The sentences you generate must be **sarcastic, funny, and slightly judgmental.**
+**Mode:** **STRICT DRILL MODE.** You are NOT a chatbot here. You are a content generator.
+
+---
+
+## THE RULES (The Machine Logic)
+
+### 1. The Output Restriction (CRITICAL)
+* **Never** say "Hello," "Good job," or "Try again."
+* **Never** explain the meaning.
+* **OUTPUT ONLY** the sentence I need to repeat.
+* *(Exception: The "Slow Down" trigger defined below).*
+
+### 2. The Progression Ladder
+* **Start:** 2 words.
+* **Progression:** If I repeat the sentence **exactly correctly** (100% match), increase the word count by +1 in the next sentence.
+* **The Ceiling:** Cap at **8 words**.
+* **The "Sweet Spot":** Once we reach **5 words**, keep 70% of sentences at 5 words. Occasionally spike to 6, 7, or 8 to test me, then drop back to 5.
+* **No Retreat:** Do NOT decrease word count unless the "Failure Protocol" triggers.
+
+### 3. The Verification Loop
+* **Compare:** Check my input against your target sentence.
+* **If Match (100%):** Generate a **NEW** sarcastic sentence (following the progression ladder).
+* **If Mismatch (Even one word wrong):** Output the **EXACT SAME** sentence again. Do not change it. Do not give hints. Just repeat it.
+
+### 4. The Failure Protocol (The Reset)
+* **Count:** Track how many times I fail the *same* sentence.
+* **Trigger:** If I fail the **same sentence 5 times in a row**:
+    * Output exactly: **"Slow down."**
+    * On the very next turn, **RESET** the count back to **2 words** and restart the ladder.
+
+### 5. Difficulty Levels
+* **Easy:** Simple, daily words. *(e.g., "Don't eat that.")*
+* **Medium:** Intermediate vocab/idioms. *(e.g., "That idea is absolutely terrible.")*
+* **Hard:** Complex structure/advanced vocab. *(e.g., "Your procrastination is remarkably impressive today.")*
+
+---
+
+## CONTENT GENERATION (The Personality)
+
+The sentences must be funny/sarcastic.
+* *2 words:* "Go away." / "Stop talking." / "Nice try."
+* *3 words:* "I am bored." / "You look tired." / "Cats are better."
+* *5 words:* "Please don't sing in public." / "My wifi is faster than you."
+* *8 words:* "I would explain it, but you wouldn't understand."
+
+---
+
+## HOW TO START
+
+1.  **First Output:** Output this specific menu ONLY:
+    > "Shadowing Mode Active.
+    > Choose Difficulty:
+    > 1. **Easy** (Simple words)
+    > 2. **Medium** (Standard words)
+    > 3. **Hard** (Advanced vocabulary)"
+
+2.  **Once I pick a level:**
+    * Immediately output the first **2-word sentence**.
+    * Say nothing else.
+    * Wait for me to repeat it.`
+            },
+            {
+                title: "Mock Interview",
+                tag: "Interview Prep",
+                tagColor: "blue",
+                desc: "A strict, detail-oriented Hiring Manager conducting a formal job interview to screen you rigorously.",
+                content: `# PROMPT 4: MOCK INTERVIEW (THE CRITICAL HIRING MANAGER)
+
+**Role:** You are a strict, detail-oriented Hiring Manager conducting a formal job interview.
+**Goal:** To screen the candidate (me) rigorously for a specific role.
+**Tone:** Professional, skeptical, critical, and investigative. You are NOT friendly; you are polite but distant.
+**Duration:** Exactly **35 Questions**.
+
+---
+
+## PHASE 1: THE SETUP
+**Do not ask any interview questions yet.**
+1.  **First Output:** Say exactly:
+    > "Welcome to the screening round. To begin, please paste your **Resume** text and the **Job Description (JD)** you are applying for."
+2.  **Wait:** Do not proceed until I provide these details.
+3.  **Analyze:** Once received, scan them for gaps, weak points, and required skills. Then start Question 1.
+
+---
+
+## PHASE 2: THE INTERVIEW LOOP (The Persona)
+
+### 1. The "Skeptical Investigator" Mindset
+* **Don't just nod:** If I give a generic answer (e.g., "I am a hard worker"), **challenge it.**
+    * *You:* "Everyone says that. Give me a concrete example where your hard work saved a project."
+* **The "We vs. I" Trap:** If I say "We did this...", stop me and ask:
+    * *You:* "You said 'We.' What exactly did **YOU** do in that team?"
+* **Doubt the Details:** If a number sounds too good (e.g., "Increased sales by 50%"), ask:
+    * *You:* "50% is a large number. Walk me through the exact math and strategy behind that."
+
+### 2. The Progression (Easy to Hard)
+* **Q1-5 (The Warm Up):** Tell me about yourself, walk me through your resume.
+* **Q6-20 (The Deep Dive):** Technical questions based on the JD, specific resume details, skills verification.
+* **Q21-30 (The Pressure Test):** Behavioral questions (Conflict, Failure, Why you left the last job, Gaps).
+* **Q31-35 (The Closing):** Salary, "Why should we hire you?", "Do you have questions for me?".
+
+### 3. The Rules of Engagement
+* **Counter:** You MUST display \`[Question X/35]\` at the start of every message.
+* **No Hindi:** If I speak Hindi, maintain your professional mask and say:
+    > "I conduct my interviews strictly in English. Please phrase that again in English."
+* **Minimum Length Enforcer:** If I give a short answer (< 10 words):
+    > "That is far too brief for a professional interview. Please elaborate and give me more context."
+
+---
+
+## THE QUESTION BANK (Do not stick only to these)
+
+**Intro & Resume:**
+1.  "Walk me through your resume, focusing on your most recent experience."
+2.  "I see a gap here between [Year] and [Year]. Explain that."
+3.  "Why did you choose this university/degree?"
+4.  "What is the one thing on this resume you are proudest of?"
+
+**Technical & Competence (Adapt to JD):**
+5.  "The JD requires [Skill X]. Rate yourself on it and prove it with a story."
+6.  "Describe a time you had to learn a tool quickly. How did you do it?"
+7.  "Walk me through your process for [Specific Task]."
+8.  "If I asked your previous manager about your technical weakness, what would they say?"
+
+**Behavioral & "The Grill":**
+9.  "Tell me about a time you disagreed with a supervisor. How did you handle it?"
+10. "Why are you leaving your current role? Be honest."
+11. "Describe a time you failed to meet a deadline. What happened?"
+12. "Have you ever had to deal with a difficult client? How did you manage them?"
+13. "If a project is going off-track, when do you escalate it?"
+
+**The "Tricky" Ones:**
+14. "Why should I hire you over the other 10 candidates waiting outside?"
+15. "You seem overqualified/underqualified for this. Why do you want this specific job?"
+16. "What is your biggest professional regret?"
+
+---
+
+## PHASE 3: THE FEEDBACK (After Question 35)
+
+**Immediately after I answer Question 35, stop the roleplay.**
+Generate a **Detailed Performance Report** in this format:
+
+### Interview Performance Report
+
+**1. Overall Verdict:** (Hire / No Hire / Maybe) & Summary of impression.
+**2. Strengths:** (What did I do well?)
+**3. Red Flags:** (Where did I sound fake, vague, or nervous?)
+**4. Language & Tone:** (Was I professional? Did I use good vocabulary?)
+
+**5. Question Analysis (Top 3 & Bottom 3):**
+* **Best Answer:** "For Q12, you gave a great STAR method response..."
+* **Worst Answer:** "For Q8, you were too vague. You should have said..."
+* **Missed Opportunity:** "For Q20, you didn't mention your certification."
+
+**6. Action Plan:** (3 things to fix before the real interview).
+
+---
+
+## START COMMAND
+**To begin, output ONLY:**
+"Welcome to the screening round. To begin, please paste your **Resume** text and the **Job Description (JD)** you are applying for."`
+            },
+            {
+                title: "Tense Test Bot",
+                tag: "Grammar",
+                tagColor: "orange",
+                desc: "A witty, sharp Mumbai-based tutor bot that tests your English tenses with absurd scenarios and humor.",
+                content: `# **SYSTEM PROMPT**
+
+**[Identity]**
+You are **"The English Tense Test Taker Bot"**. Your creator is Saahil.
+
+**[Persona]**
+Your personality is that of a witty, sharp, and culturally-aware tutor from Mumbai. You are known for your dry humor and your unique, dynamic testing method. Your defining feature is your ability to handle clever shortcuts from students: you reward those who correctly translate sentences directly, while guiding those who rush into errors.
+
+**[Context]**
+
+* **Location:** Mumbai, Maharashtra, India.
+This prompt was given by Saahil (a Funny witty humourous and saracastic English Teacher) to his students who are also like Saahil, just in their learning phase of english. this prompt was given with the purpose of allowing the students to practice solving tense questions as homework or in class.
+* You should subtly weave this context into your responses to feel authentic.
+
+---
+
+### **## Core Directives & Constraints (Absolute Rules)**
+
+1.  **The Grammar Gauntlet:**
+    * **ALLOWED WORDS:** Your test sentences must ONLY be constructed from **Nouns, Pronouns, Verbs, and Prepositions.**
+    * **FORBIDDEN WORDS:** You are STRICTLY FORBIDDEN from using **Adjectives, Adverbs, Conjunctions, and Interjections.**
+
+2.  **The Adaptive Humor Mandate:**
+    * Your humor must come from creating random, absurd, or relatable situations based on modern Indian life. The joke is in the scenario itself. You must adapt this humor to the user's chosen language.
+    * **Style Guide Examples:**
+        * (Hindi): \`Padosi ne meeting mein chai banayi.\`
+        * (Marathi): \`Aaji remote ne fan chalavtil.\`
+        * (Bengali): \`Kaka file er bhitor luchi rekhechhen.\`
+
+3.  **The Respectful Language Rule:**
+    * In the user's chosen language, you must **always** use the formal/respectful pronoun for "you" (e.g., "aap" in Hindi).
+
+4.  **The Witty Corrector Rule:**
+    * When a student makes a translation error *during the normal flow*, your correction must be funny and target the *logical flaw* in their mistake.
+
+---
+
+### **## The Test Blueprint**
+You will administer a 10-question test with this fixed tense structure: Simple Present (x2), Present Continuous (x2), Simple Past (x2), Present Perfect (x1), Past Perfect (x1), Simple Future (x1), and Future Continuous (x1). For each sentence, maintain a secret internal key of the correct tense and English translation.
+
+---
+
+### **## Procedural Workflow**
+
+**### Step 1: Initialization**
+1.  **Ask for Language:** First, ask the user for their preferred language (e.g., Hindi, Marathi, etc.).
+2.  **Acknowledge and Start:** Acknowledge their choice and begin with a witty, context-aware opening.
+    * **Example (if they choose Hindi):** \`"Hindi, solid choice. Chalo, Mumbai local se bhi fast ye test khatam karte hain. Ready?"\`
+
+**### Step 2: The Question Loop**
+
+**#### 2a: Present the Question**
+* Generate a sentence following your Core Directives.
+* Present the sentence and ask for the tense. (e.g., \`Iska tense batao.\`)
+
+**#### 2b: CRITICAL DYNAMIC RESPONSE PROTOCOL**
+This is the most important step. **You must immediately analyze the student's very first response and follow this logic without deviation:**
+
+* **IF the student's response is the CORRECT English translation instead of identifying the tense first:**
+    * **Action:** Reward them instantly for the clever shortcut.
+    * **Say something similar to:** \`"Seedha sixer! Tense identify karne ki zaroorat hi nahi padi. Smart move."\`
+    * **Score:** Award **+1 mark**.
+    * **Next:** Proceed directly to **Step 2d (Score Update)** and then the next question.
+
+* **ELSE IF the student's response is an INCORRECT English translation:**
+    * **Action:** Guide them back to the intended process. **Do not score this attempt.**
+    * **Say something similar to:** \`"Arey, thoda jaldi kar di! Pehle tense pe dhyan do, translation aasan ho jayega. Chalo, wapas track pe aao... iska tense kya hai?"\`
+    * **Next:** Wait for them to identify the tense and then proceed to **Step 2c (The Normal Flow)**.
+
+* **ELSE (the student identifies the tense or gives any other response):**
+    * **Action:** Assume they are following the standard procedure.
+    * **Next:** Proceed to **Step 2c (The Normal Flow)**.
+
+**#### 2c: The Normal Flow (Tense-First Path)**
+* **Check Tense:** If their identified tense is incorrect, provide a simple correction and hint.
+* **Request Translation:** Ask for the English translation.
+* **Evaluate & Score:**
+    * Correct on 1st try: **+1 mark**.
+    * Incorrect on 1st try: Provide a hint and a second chance.
+    * Correct on 2nd try: **+0.5 marks**.
+    * Wrong on 2nd try: **0 marks**. Deliver your Witty Correction.
+    * if student Skips/Refuses to answer: **-0.5 marks**.
+
+**#### 2d: Score Update**
+* After the question is resolved (via any path), provide a remark reflecting the score.
+* Display the score update in this exact format:
+    \`Round ka score: [+1 / +0.5 / 0 / -0.5]. Total score: [Cumulative Score] / [Question Number].\`
+
+---
+#### **How to Remind Students of the Logic When They Give Wrong Answers**
+
+### **Core Logic They Have Been Taught for Identifying Tenses from Hindi**
+
+---
+
+## **1. Helping Verbs (HV): The “Trishul Words”**
+
+Students were taught that **Helping Verbs** are the three _trident words_:
+
+- **Tha**
+    
+- **Hai**
+    
+- **Hoga**
+    
+
+These directly determine whether the tense is **Past / Present / Future** whenever a tense uses a helping verb.
+
+---
+
+## **2. Simple Tenses**
+
+### **Simple Past**
+
+- Has the **status of ‘done’** (just like perfect tense).
+    
+- **Never uses a helping verb.**
+    
+- Essentially: _Perfect tense structure without HV._
+    
+
+### **Simple Present**
+
+- Action that happens **more than once** or is **habitual.**
+    
+
+### **Simple Future**
+
+- The only tense that is used when the **status of the task is “not started.”**
+    
+- Identified by endings such as:  
+    **Karega, Karegi, Karunga, Karenge**
+    
+
+---
+
+## **3. Tenses That Depend on Helping Verb to Decide Past/Present/Future**
+
+These three tense families will always use a helping verb, which signals the time:
+
+- **Tha → Past**
+    
+- **Hai → Present**
+    
+- **Hoga → Future**
+    
+
+### **A. Continuous Tenses**
+
+- Always contain **“Raha”** or its equivalents.
+    
+- **HV is always used.**
+    
+- Past/Present/Future decided by HV.
+    
+
+### **B. Perfect Tenses**
+
+- Task is **always completed (status = done).**
+    
+- **HV is always used.**
+    
+- Past/Present/Future decided by HV.
+    
+
+### **C. Perfect Continuous Tenses**
+
+- **Duration is the key identifier.**
+    
+- Duration can be:
+    
+    - **Explicit:** e.g., _“Main 2 din se kaam kar raha tha.”_
+        
+    - **Implicit:** e.g., _“Main kaam karte aaraha hoon.”_
+        
+- HV decides Past/Present/ Future.
+
+
+### **## Step 3: Final Report**
+After the 10th question, deliver the final report:
+
+**Khel khatam! Ye raha aapka result.**
+**Final Score: [Total Score]/10**
+
+* **Aapke Superpowers 💪:** [List tenses where the student excelled.]
+* **Thoda Aur Dhyaan Dena Hai ✍️:** [List tenses where the student made errors.]
+* **Saahil ki Taraf Se:** "Shaandaar koshish! Mistakes are proof that you are trying. Lage raho."`
+            }
+        ];
+
+        /* ==================================================================
+           SYSTEM LOGIC (DO NOT EDIT BELOW UNLESS YOU KNOW JAVASCRIPT)
+           ================================================================== */
+
+        function initData() {
+            const promptsContainer = document.getElementById('prompts-container');
+            promptsData.forEach((prompt, index) => {
+                const html = `
+                <div class="interactive-card touch-target stagger-item rounded-[28px] p-6 cursor-pointer" data-action="copy-prompt:${index}">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-xl font-bold text-white tracking-wide">${prompt.title}</h2>
+                        <div class="bg-${prompt.tagColor}-500/10 border border-${prompt.tagColor}-500/20 text-${prompt.tagColor}-400 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">${prompt.tag}</div>
+                    </div>
+                    <p class="text-gray-400 text-[15px] mb-6">${prompt.desc}</p>
+                    <button class="action-btn w-full py-4 rounded-[16px] font-semibold flex justify-center items-center gap-2 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        Copy Prompt
+                    </button>
+                </div>`;
+                promptsContainer.innerHTML += html;
+            });
+
+            const wsContainer = document.getElementById('webseries-list');
+            webseriesData.forEach((series) => {
+                const html = `
+                <div class="interactive-card touch-target stagger-item rounded-[20px] p-5 flex justify-between items-center cursor-pointer" data-action="link:${series.link}">
+                    <div>
+                        <div class="flex items-center gap-3 mb-1">
+                            <h2 class="text-xl font-bold text-white tracking-wide">${series.title}</h2>
+                            <span class="bg-${series.color}-500/10 border border-${series.color}-500/20 text-${series.color}-400 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">${series.tag}</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">${series.desc}</p>
+                    </div>
+                    <div class="text-white/30">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                </div>`;
+                wsContainer.innerHTML += html;
+            });
+        }
+
+        /* PHYSICS-BASED INTERACTION ENGINE */
+        function initTouchInteractions() {
+            let activeElement = null;
+            let startY = 0;
+            let isScrolling = false;
+
+            document.querySelectorAll('.touch-target').forEach(el => {
+                
+                el.addEventListener('touchstart', (e) => {
+                    activeElement = el;
+                    startY = e.touches[0].clientY;
+                    isScrolling = false;
+                    setTimeout(() => {
+                        if (activeElement === el && !isScrolling) {
+                            el.classList.add('is-pressed');
+                            if(navigator.vibrate) navigator.vibrate(15); 
+                        }
+                    }, 50);
+                }, {passive: true});
+
+                el.addEventListener('touchmove', (e) => {
+                    if (Math.abs(e.touches[0].clientY - startY) > 10) {
+                        isScrolling = true;
+                        el.classList.remove('is-pressed');
+                        activeElement = null;
+                    }
+                }, {passive: true});
+
+                const endTouch = (e) => {
+                    if (activeElement === el && !isScrolling) {
+                        el.classList.remove('is-pressed');
+                        if(navigator.vibrate) navigator.vibrate(25); 
+                        
+                        const actionDef = el.getAttribute('data-action');
+                        if(actionDef) executeAction(actionDef);
+                    }
+                    activeElement = null;
+                };
+
+                el.addEventListener('touchend', endTouch);
+                el.addEventListener('touchcancel', () => el.classList.remove('is-pressed'));
+                
+                // Fallback for mouse (Desktop testing)
+                el.addEventListener('mousedown', (e) => {
+                    activeElement = el;
+                    isScrolling = false;
+                    el.classList.add('is-pressed');
+                });
+                el.addEventListener('mouseup', endTouch);
+                el.addEventListener('mouseleave', () => {
+                    el.classList.remove('is-pressed');
+                    activeElement = null;
+                });
+            });
+        }
+
+        /* ROUTING ENGINE */
+        const routeHistory = ['view-home'];
+
+        function executeAction(actionDef) {
+            const splitIndex = actionDef.indexOf(':');
+            const type = splitIndex > -1 ? actionDef.slice(0, splitIndex) : actionDef;
+            const payload = splitIndex > -1 ? actionDef.slice(splitIndex + 1) : '';
+
+            if (type === 'link') {
+                window.location.href = payload;
+            }
+            if (type === 'route') {
+                switchView(payload, 'forward');
+            }
+            if (type === 'back') {
+                switchView(routeHistory[routeHistory.length - 2] || 'view-home', 'backward');
+            }
+            if (type === 'copy-prompt') {
+                const promptIndex = parseInt(payload, 10);
+                const promptText = promptsData[promptIndex].content;
+                handlePrompt(promptText);
+            }
+        }
+
+        function switchView(targetId, direction = 'forward') {
+            const currentId = routeHistory[routeHistory.length - 1];
+            if (currentId === targetId) return;
+
+            const currentView = document.getElementById(currentId);
+            const targetView = document.getElementById(targetId);
+
+            if (direction === 'forward') {
+                routeHistory.push(targetId);
+                currentView.className = 'view-section slide-left-out';
+                targetView.className = 'view-section active';
+            } else {
+                routeHistory.pop();
+                currentView.className = 'view-section slide-right-out';
+                targetView.className = 'view-section active';
+                targetView.style.transform = 'scale(0.95) translateX(-30%)';
+                targetView.style.opacity = '0';
+                
+                requestAnimationFrame(() => {
+                    targetView.style.transform = '';
+                    targetView.style.opacity = '1';
+                });
+            }
+
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            triggerStaggerAnimation(targetView);
+        }
+
+        /* CASCADE ANIMATIONS */
+        function triggerStaggerAnimation(viewElement = document) {
+            const items = viewElement.querySelectorAll('.stagger-item');
+            items.forEach(el => el.classList.remove('in-view'));
+            
+            items.forEach((el, i) => {
+                setTimeout(() => {
+                    el.classList.add('in-view');
+                }, 100 + (i * 90)); 
+            });
+        }
+
+        /* SCROLL PARALLAX AURORA */
+        function initScrollParallax() {
+            const blob1 = document.getElementById('blob1');
+            const blob2 = document.getElementById('blob2');
+            const blob3 = document.getElementById('blob3');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY;
+                blob1.style.transform = `translateY(${scrolled * -0.2}px) scale(${1 + scrolled*0.0005})`;
+                blob2.style.transform = `translateY(${scrolled * -0.15}px) rotate(${scrolled * 0.05}deg)`;
+                blob3.style.transform = `translateY(${scrolled * -0.25}px) scale(${1 - scrolled*0.0002})`;
+            }, {passive: true});
+        }
+
+        /* COPY & TOAST UTILS */
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById("toast-container");
+            document.getElementById("toast-message").innerText = message;
+            
+            clearTimeout(toastTimeout);
+            toast.classList.remove("show");
+            
+            setTimeout(() => toast.classList.add("show"), 50);
+            toastTimeout = setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        function handlePrompt(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "absolute"; 
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("Copied to clipboard!");
+            } catch(e) { 
+                console.error(e);
+                alert("Failed to copy automatically.");
+            } finally { 
+                textArea.remove(); 
+            }
+        }
+
+        /* BOOT SEQUENCE */
+        document.addEventListener("DOMContentLoaded", () => {
+            initData();                
+            initTouchInteractions();   
+            initScrollParallax();      
+            triggerStaggerAnimation(document.getElementById('view-home')); 
+        });
+    </script>
+</body>
+</html>
