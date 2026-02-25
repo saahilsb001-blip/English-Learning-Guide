@@ -128,11 +128,11 @@
 
         /* Hyper-Glassmorphism Interactive Cards */
         .interactive-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            background: linear-gradient(180deg, rgba(15, 15, 25, 0.7) 0%, rgba(5, 5, 15, 0.8) 100%);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             position: relative;
             overflow: hidden;
             transition: transform 0.7s var(--spring-bounce), border-color 0.5s ease, background 0.5s ease;
@@ -144,7 +144,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -154,7 +154,7 @@
         .interactive-card.is-pressed {
             transform: scale(0.96) translateY(2px);
             border-color: rgba(255, 255, 255, 0.2);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            background: linear-gradient(180deg, rgba(25, 25, 40, 0.8) 0%, rgba(10, 10, 20, 0.9) 100%);
             transition: transform 0.4s var(--spring-smooth), border-color 0.4s ease, background 0.4s ease;
         }
         .interactive-card.is-pressed::after {
@@ -245,7 +245,7 @@
              ========================================== -->
         <main id="view-home" class="view-section active max-w-[480px] mx-auto px-5 py-12">
             
-            <header class="mb-10 text-center stagger-item">
+            <header class="mb-10 mt-8 text-center stagger-item">
                 <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-white/5 border border-white/10 mb-6 shadow-[0_0_40px_rgba(139,92,246,0.15)] backdrop-blur-md">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <defs><linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c084fc" /><stop offset="100%" stop-color="#38bdf8" /></linearGradient></defs>
@@ -257,17 +257,23 @@
             </header>
 
             <!-- External Links / Routes Grid -->
-            <div class="grid grid-cols-2 gap-4 mb-12 stagger-item">
-                <div class="interactive-card touch-target rounded-[24px] p-6 flex flex-col items-center justify-center text-center cursor-pointer" data-action="route:view-webseries">
-                    <div class="w-14 h-14 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-3 border border-indigo-500/20">📺</div>
-                    <h2 class="text-lg font-bold text-white tracking-wide">Webseries</h2>
-                    <p class="text-xs text-gray-400 mt-1">Watch & Learn</p>
+            <div class="grid grid-cols-3 gap-3 mb-12 stagger-item">
+                <div class="interactive-card touch-target rounded-[20px] p-4 flex flex-col items-center justify-center text-center cursor-pointer" data-action="route:view-webseries">
+                    <div class="w-12 h-12 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-2 border border-indigo-500/20">📺</div>
+                    <h2 class="text-[13px] font-bold text-white tracking-wide">Webseries</h2>
+                    <p class="text-[10px] text-gray-400 mt-1">Watch</p>
                 </div>
                 
-                <div class="interactive-card touch-target rounded-[24px] p-6 flex flex-col items-center justify-center text-center cursor-pointer" data-action="link:https://www.youtube.com/playlist?list=PLlfRim4hNW66zEUyNh7Q0Gd3A1gWS49RA">
-                    <div class="w-14 h-14 rounded-full bg-fuchsia-500/10 text-fuchsia-400 flex items-center justify-center text-2xl mb-3 border border-fuchsia-500/20">🎵</div>
-                    <h2 class="text-lg font-bold text-white tracking-wide">Music</h2>
-                    <p class="text-xs text-gray-400 mt-1">Listen & Vibe</p>
+                <div class="interactive-card touch-target rounded-[20px] p-4 flex flex-col items-center justify-center text-center cursor-pointer" data-action="link:https://www.youtube.com/playlist?list=PLlfRim4hNW66zEUyNh7Q0Gd3A1gWS49RA">
+                    <div class="w-12 h-12 rounded-full bg-fuchsia-500/10 text-fuchsia-400 flex items-center justify-center text-xl mb-2 border border-fuchsia-500/20">🎵</div>
+                    <h2 class="text-[13px] font-bold text-white tracking-wide">Music</h2>
+                    <p class="text-[10px] text-gray-400 mt-1">Listen</p>
+                </div>
+
+                <div class="interactive-card touch-target rounded-[20px] p-4 flex flex-col items-center justify-center text-center cursor-pointer" data-action="link:grammar-notes.html">
+                    <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-2 border border-emerald-500/20">📝</div>
+                    <h2 class="text-[13px] font-bold text-white tracking-wide">Grammar</h2>
+                    <p class="text-[10px] text-gray-400 mt-1">Notes</p>
                 </div>
             </div>
 
@@ -278,7 +284,7 @@
             </div>
 
             <!-- Prompts injected here automatically -->
-            <div id="prompts-container" class="flex flex-col gap-5 pb-20">
+            <div id="prompts-container" class="grid grid-cols-2 gap-4 pb-20">
                 <!-- Data injected via initData() -->
             </div>
         </main>
@@ -854,15 +860,15 @@ After the 10th question, deliver the final report:
             const promptsContainer = document.getElementById('prompts-container');
             promptsData.forEach((prompt, index) => {
                 const html = `
-                <div class="interactive-card touch-target stagger-item rounded-[28px] p-6 cursor-pointer" data-action="copy-prompt:${index}">
-                    <div class="flex justify-between items-start mb-4">
-                        <h2 class="text-xl font-bold text-white tracking-wide">${prompt.title}</h2>
-                        <div class="bg-${prompt.tagColor}-500/10 border border-${prompt.tagColor}-500/20 text-${prompt.tagColor}-400 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">${prompt.tag}</div>
+                <div class="interactive-card touch-target stagger-item rounded-[24px] p-5 cursor-pointer flex flex-col h-full" data-action="copy-prompt:${index}">
+                    <div class="mb-auto">
+                        <div class="inline-block bg-${prompt.tagColor}-500/10 border border-${prompt.tagColor}-500/20 text-${prompt.tagColor}-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest mb-3">${prompt.tag}</div>
+                        <h2 class="text-lg font-bold text-white tracking-wide leading-tight mb-2">${prompt.title}</h2>
+                        <p class="text-gray-400 text-[13px] mb-5 line-clamp-3 leading-relaxed">${prompt.desc}</p>
                     </div>
-                    <p class="text-gray-400 text-[15px] mb-6">${prompt.desc}</p>
-                    <button class="action-btn w-full py-4 rounded-[16px] font-semibold flex justify-center items-center gap-2 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                        Copy Prompt
+                    <button class="action-btn w-full py-3 rounded-[14px] font-semibold flex justify-center items-center gap-2 text-white text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        Copy
                     </button>
                 </div>`;
                 promptsContainer.innerHTML += html;
