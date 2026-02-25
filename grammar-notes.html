@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Grammar Notes - Learn English The Practical Way</title>
+    
+    <!-- PWA Installability Meta Tags -->
+    <meta name="theme-color" content="#3e2723">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Handwritten Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pen-color: #1e3a8a; /* Deep blue ink */
+            --red-margin: #fca5a5;
+            --blue-line: #bae6fd;
+            --paper-bg: #fdfbf7;
+            --line-height: 2.5rem;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            /* Wood texture background for the desk */
+            background-image: repeating-linear-gradient(45deg, #1c1917 25%, transparent 25%, transparent 75%, #1c1917 75%, #1c1917), repeating-linear-gradient(45deg, #1c1917 25%, #1f1c1a 25%, #1f1c1a 75%, #1c1917 75%, #1c1917);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            touch-action: pan-y; /* Allow vertical scrolling, prevent swipe-navigation conflicts */
+        }
+
+        /* The Main Book Container */
+        .book-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* Limits width on desktop, full width on mobile */
+            height: 100vh;
+            max-height: 900px;
+            perspective: 2000px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        @media (min-width: 500px) {
+            .book-container {
+                height: 90vh;
+                border-radius: 0 16px 16px 0;
+            }
+        }
+
+        /* 3D Page Mechanics */
+        .page {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            transform-origin: left center;
+            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.5s ease-in-out;
+            transform-style: preserve-3d;
+            background-color: var(--paper-bg);
+            border-left: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .page.flipped {
+            transform: rotateY(-180deg);
+            opacity: 0; /* Fades out so it doesn't clip on small mobile screens */
+            pointer-events: none;
+        }
+
+        @media (min-width: 500px) {
+            .page { border-radius: 0 16px 16px 0; }
+        }
+
+        /* Cover Design */
+        .cover {
+            background: linear-gradient(135deg, #3e2723 0%, #2b1b17 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-left: 15px solid #1a100e; /* Binding */
+            box-shadow: inset 5px 0 15px rgba(0,0,0,0.5);
+            color: #fff;
+        }
+
+        .cover-label {
+            background: #fdfbf7;
+            padding: 20px 40px;
+            border: 2px solid #333;
+            border-radius: 4px;
+            text-align: center;
+            color: #111;
+            font-family: 'Kalam', cursive;
+            transform: rotate(-2deg);
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Tape effect on label */
+        .cover-label::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: 50%;
+            transform: translateX(-50%) rotate(2deg);
+            width: 60px; height: 20px;
+            background: rgba(255,255,255,0.4);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Ruled Paper Design */
+        .paper-content {
+            height: 100%;
+            width: 100%;
+            overflow-y: auto; /* Allow scrolling inside the page */
+            overflow-x: hidden;
+            background-color: var(--paper-bg);
+            /* Red margin line & Blue horizontal lines */
+            background-image: 
+                linear-gradient(90deg, transparent 3.8rem, var(--red-margin) 3.8rem, var(--red-margin) 4rem, transparent 4rem),
+                linear-gradient(var(--blue-line) 1px, transparent 1px);
+            background-size: 100% 100%, 100% var(--line-height);
+            background-attachment: local; /* Critical: lines scroll with text */
+            
+            padding: calc(var(--line-height) * 2) 1.5rem 4rem 4.5rem; /* Aligns text to lines */
+            
+            font-family: 'Kalam', cursive;
+            font-size: 1.25rem;
+            line-height: var(--line-height);
+            color: var(--pen-color);
+        }
+
+        /* Hide scrollbars for aesthetic */
+        .paper-content::-webkit-scrollbar { width: 0px; }
+
+        /* Typography & Ink Styling */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin: 0 0 var(--line-height) 0;
+            color: #000; /* Headings in black ink */
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: var(--pen-color);
+        }
+        
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.6rem; }
+        
+        p, ul, ol { margin: 0 0 var(--line-height) 0; padding-left: 1rem; }
+        li { margin-bottom: 0; }
+
+        /* Index Links */
+        .index-link {
+            display: block;
+            cursor: pointer;
+            color: var(--pen-color);
+            transition: color 0.2s, transform 0.2s;
+        }
+        .index-link:active {
+            color: #ea580c;
+            transform: scale(0.98) translateX(5px);
+        }
+
+        /* Hand-drawn Mobile Optimized Tables */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto; /* Horizontal scroll for wide tables */
+            margin-bottom: var(--line-height);
+            background: rgba(255,255,255,0.5);
+            border-radius: 4px;
+        }
+
+        .notes-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+            line-height: 1.6rem; /* Tighter line height for tables */
+            min-width: 400px; /* Ensures table doesn't squish too much */
+        }
+
+        .notes-table th, .notes-table td {
+            border: 2px solid var(--pen-color);
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        /* Hand-drawn irregular border effect on the outside of the table */
+        .notes-table {
+            border: 2px solid var(--pen-color);
+            border-radius: 2px 15px 4px 20px / 15px 2px 20px 4px;
+        }
+
+        .notes-table th {
+            background-color: rgba(30, 58, 138, 0.05); /* Very faint blue highlighter */
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Navigation Arrows (Fixed at bottom corners) */
+        .nav-arrows {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            pointer-events: none; /* Let clicks pass through the container */
+        }
+
+        .arrow-btn {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.9);
+            color: #111;
+            border: 2px solid #333;
+            width: 54px; height: 54px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            font-family: 'Inter', sans-serif; /* Clean font for arrows */
+        }
+
+        .arrow-btn:active {
+            transform: scale(0.9);
+            background: #e5e7eb;
+        }
+
+        .arrow-btn:disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Page Numbering */
+        .page-num {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+            font-family: 'Kalam', cursive;
+            color: rgba(0,0,0,0.4);
+            font-size: 1rem;
+        }
+
+        /* Back to Main Site Button */
+        .home-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-container" id="book">
+        
+        <!-- ==========================================
+             PAGE 0: COVER
+             ========================================== -->
+        <div class="page cover" id="page-0" style="z-index: 100;">
+            <a href="index.html" class="home-btn">← Back to App</a>
+            <div class="cover-label">
+                <h1 style="border: none; margin-bottom: 0; color: #111; text-decoration: none;">Grammar Notes</h1>
+                <p style="margin: 0; color: #555; font-size: 1.2rem;">By Saahil</p>
+            </div>
+            <div style="position: absolute; bottom: 30px; font-family: 'Kalam'; font-size: 1.2rem; color: rgba(255,255,255,0.5);">
+                Open to begin →
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 1: INDEX
+             ========================================== -->
+        <div class="page" id="page-1" style="z-index: 99;">
+            <div class="paper-content">
+                <h2>Index</h2>
+                <ol>
+                    <li><span class="index-link" onclick="flipTo(2)">Helping Verbs</span></li>
+                    <li><span class="index-link" onclick="flipTo(3)">Verb Forms (V1 to V5)</span></li>
+                    <li><span class="index-link" onclick="flipTo(4)">Regular vs Irregular Verbs</span></li>
+                    <li><span class="index-link" onclick="flipTo(5)">Tenses Master Table (Hindi)</span></li>
+                    <li><span class="index-link" onclick="flipTo(6)">Pos / Neg / Question (Part 1)</span></li>
+                    <li><span class="index-link" onclick="flipTo(7)">Pos / Neg / Question (Part 2)</span></li>
+                    <li><span class="index-link" onclick="flipTo(8)">Nouns and Types</span></li>
+                    <li><span class="index-link" onclick="flipTo(9)">Pronouns Tables</span></li>
+                    <li><span class="index-link" onclick="flipTo(10)">Modal Aux Sentences</span></li>
+                    <li><span class="index-link" onclick="flipTo(11)">Articles Map</span></li>
+                </ol>
+            </div>
+            <div class="page-num">pg. 1</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 2: HELPING VERBS
+             ========================================== -->
+        <div class="page" id="page-2" style="z-index: 98;">
+            <div class="paper-content">
+                <h2>1. Helping Verbs (The Trishul)</h2>
+                <p>These are the 3 key words that tell us the time:</p>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Hindi Word</th>
+                            <th>Time / Tense</th>
+                            <th>English Examples</th>
+                        </tr>
+                        <tr>
+                            <td>Tha / Thi / The</td>
+                            <td>Past</td>
+                            <td>Was, Were, Had, Did</td>
+                        </tr>
+                        <tr>
+                            <td>Hai / Hoon</td>
+                            <td>Present</td>
+                            <td>Is, Am, Are, Has, Have, Do</td>
+                        </tr>
+                        <tr>
+                            <td>Hoga / Hogi</td>
+                            <td>Future</td>
+                            <td>Will, Will be, Will have</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="page-num">pg. 2</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 3: VERB FORMS
+             ========================================== -->
+        <div class="page" id="page-3" style="z-index: 97;">
+            <div class="paper-content">
+                <h2>2. Verb Forms</h2>
+                <p>The 5 states of an action word:</p>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Form</th>
+                            <th>Name</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td>V1</td>
+                            <td>Base / Plural Present</td>
+                            <td>Go, Play, Eat</td>
+                        </tr>
+                        <tr>
+                            <td>V2</td>
+                            <td>Simple Past</td>
+                            <td>Went, Played, Ate</td>
+                        </tr>
+                        <tr>
+                            <td>V3</td>
+                            <td>Past Participle (Perfect)</td>
+                            <td>Gone, Played, Eaten</td>
+                        </tr>
+                        <tr>
+                            <td>V4</td>
+                            <td>Continuous (-ing)</td>
+                            <td>Going, Playing, Eating</td>
+                        </tr>
+                        <tr>
+                            <td>V5</td>
+                            <td>Singular Present (-s/-es)</td>
+                            <td>Goes, Plays, Eats</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="page-num">pg. 3</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 4: REGULAR VS IRREGULAR
+             ========================================== -->
+        <div class="page" id="page-4" style="z-index: 96;">
+            <div class="paper-content">
+                <h2>3. Regular vs Irregular</h2>
+                <p><strong>Regular Verbs:</strong> Simply add -ed for V2 and V3.<br>
+                <em>Example:</em> Jump → Jumped → Jumped</p>
+                
+                <p><strong>Irregular Verbs:</strong> They change completely or don't change at all! You have to memorize these.</p>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>V1</th>
+                            <th>V2</th>
+                            <th>V3</th>
+                        </tr>
+                        <tr>
+                            <td>Cut (No change)</td>
+                            <td>Cut</td>
+                            <td>Cut</td>
+                        </tr>
+                        <tr>
+                            <td>Speak (Vowel shift)</td>
+                            <td>Spoke</td>
+                            <td>Spoken</td>
+                        </tr>
+                        <tr>
+                            <td>Catch (Complete change)</td>
+                            <td>Caught</td>
+                            <td>Caught</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="page-num">pg. 4</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 5: TENSES MASTER TABLE (HINDI)
+             ========================================== -->
+        <div class="page" id="page-5" style="z-index: 95;">
+            <div class="paper-content">
+                <h2>4. Tenses Master Table (Hindi)</h2>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Tense</th>
+                            <th>Identity (Endings)</th>
+                            <th>English Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Simp. Present</td>
+                            <td>Ta hai, Ti hai, Te hai</td>
+                            <td>Sub + V1/V5 + Obj</td>
+                        </tr>
+                        <tr>
+                            <td>Simp. Past</td>
+                            <td>Aa, Ee, E (No Tha)</td>
+                            <td>Sub + V2 + Obj</td>
+                        </tr>
+                        <tr>
+                            <td>Simp. Future</td>
+                            <td>Ga, Ge, Gi</td>
+                            <td>Sub + Will + V1 + Obj</td>
+                        </tr>
+                        <tr>
+                            <td>Pres. Continuous</td>
+                            <td>Raha hai, Rahi hai</td>
+                            <td>Is/Am/Are + V4</td>
+                        </tr>
+                        <tr>
+                            <td>Past Continuous</td>
+                            <td>Raha tha, Rahi thi</td>
+                            <td>Was/Were + V4</td>
+                        </tr>
+                        <tr>
+                            <td>Pres. Perfect</td>
+                            <td>Chuka hai / Liya hai</td>
+                            <td>Has/Have + V3</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>*(More tenses to be added in class!)*</p>
+            </div>
+            <div class="page-num">pg. 5</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 6: POS/NEG/Q PART 1
+             ========================================== -->
+        <div class="page" id="page-6" style="z-index: 94;">
+            <div class="paper-content">
+                <h2>5a. Pos / Neg / Question</h2>
+                <p>The structure flips based on the sentence type. (Simple Present & Past require DO/DOES/DID for negatives!).</p>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Simple Present</th>
+                        </tr>
+                        <tr>
+                            <td>[+] Pos</td>
+                            <td>He plays cricket.</td>
+                        </tr>
+                        <tr>
+                            <td>[-] Neg</td>
+                            <td>He <b>does not</b> play cricket. (V1)</td>
+                        </tr>
+                        <tr>
+                            <td>[?] Que</td>
+                            <td><b>Does</b> he play cricket?</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Simple Past</th>
+                        </tr>
+                        <tr>
+                            <td>[+] Pos</td>
+                            <td>He played cricket. (V2)</td>
+                        </tr>
+                        <tr>
+                            <td>[-] Neg</td>
+                            <td>He <b>did not</b> play cricket. (V1)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="page-num">pg. 6</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 7: POS/NEG/Q PART 2
+             ========================================== -->
+        <div class="page" id="page-7" style="z-index: 93;">
+            <div class="paper-content">
+                <h2>5b. Pos / Neg / Question</h2>
+                <p>For Continuous and Perfect, just throw "NOT" after the helping verb, and pull the helping verb to the front for questions.</p>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Present Continuous</th>
+                        </tr>
+                        <tr>
+                            <td>[+] Pos</td>
+                            <td>She is reading.</td>
+                        </tr>
+                        <tr>
+                            <td>[-] Neg</td>
+                            <td>She is <b>not</b> reading.</td>
+                        </tr>
+                        <tr>
+                            <td>[?] Que</td>
+                            <td><b>Is</b> she reading?</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="page-num">pg. 7</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 8: NOUNS
+             ========================================== -->
+        <div class="page" id="page-8" style="z-index: 92;">
+            <div class="paper-content">
+                <h2>6. Nouns & Types</h2>
+                <p>A noun is a naming word. (Person, place, animal, thing, or idea).</p>
+                <ul>
+                    <li><strong>Proper Noun:</strong> Specific names (Saahil, Mumbai, Honda). Always capitalized!</li>
+                    <li><strong>Common Noun:</strong> General names (teacher, city, car).</li>
+                    <li><strong>Abstract Noun:</strong> Feelings or ideas you can't touch (love, anger, freedom, time).</li>
+                    <li><strong>Collective Noun:</strong> A group of things (a <em>team</em> of players, a <em>bunch</em> of keys).</li>
+                </ul>
+            </div>
+            <div class="page-num">pg. 8</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 9: PRONOUNS
+             ========================================== -->
+        <div class="page" id="page-9" style="z-index: 91;">
+            <div class="paper-content">
+                <h2>7. Pronoun Tables</h2>
+                <p>Words used INSTEAD of nouns to avoid repetition.</p>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Subject (Hero)</th>
+                            <th>Object (Receiver)</th>
+                            <th>Possessive (Owner)</th>
+                        </tr>
+                        <tr>
+                            <td>I</td>
+                            <td>Me</td>
+                            <td>My / Mine</td>
+                        </tr>
+                        <tr>
+                            <td>We</td>
+                            <td>Us</td>
+                            <td>Our / Ours</td>
+                        </tr>
+                        <tr>
+                            <td>He / She</td>
+                            <td>Him / Her</td>
+                            <td>His / Her</td>
+                        </tr>
+                        <tr>
+                            <td>They</td>
+                            <td>Them</td>
+                            <td>Their / Theirs</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="page-num">pg. 9</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 10: MODAL AUX
+             ========================================== -->
+        <div class="page" id="page-10" style="z-index: 90;">
+            <div class="paper-content">
+                <h2>8. Modal Auxiliaries</h2>
+                <p>Helping verbs that show "mood" or "attitude". They NEVER change form (no -s, no -ed) and are always followed by V1.</p>
+                <ul>
+                    <li><strong>Can:</strong> Ability (I can swim).</li>
+                    <li><strong>Should:</strong> Advice (You should study).</li>
+                    <li><strong>Must:</strong> Obligation (You must wear a helmet).</li>
+                    <li><strong>May:</strong> Permission/Possibility (May I come in? It may rain).</li>
+                    <li><strong>Would:</strong> Polite request / Past habit (Would you help me?).</li>
+                </ul>
+            </div>
+            <div class="page-num">pg. 10</div>
+        </div>
+
+        <!-- ==========================================
+             PAGE 11: ARTICLES MAP
+             ========================================== -->
+        <div class="page" id="page-11" style="z-index: 89;">
+            <div class="paper-content">
+                <h2>9. Articles Map (A, An, The)</h2>
+                <div class="table-wrapper">
+                    <table class="notes-table">
+                        <tr>
+                            <th>Article</th>
+                            <th>Usage Rule</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td><strong>A</strong></td>
+                            <td>Consonant SOUNDS</td>
+                            <td>A car, A university (sounds like 'y')</td>
+                        </tr>
+                        <tr>
+                            <td><strong>An</strong></td>
+                            <td>Vowel SOUNDS</td>
+                            <td>An apple, An hour (h is silent)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>The</strong></td>
+                            <td>Specific / Unique things</td>
+                            <td>The sun, The boy in red</td>
+                        </tr>
+                    </table>
+                </div>
+                <p><em>Rule of thumb:</em> When you mention something for the first time, use A/An. When you talk about it again, use The!</p>
+            </div>
+            <div class="page-num">pg. 11</div>
+        </div>
+
+    </div>
+
+    <!-- Fixed Navigation Arrows -->
+    <div class="nav-arrows">
+        <button id="prev-btn" class="arrow-btn" onclick="turnPrev()" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <button id="next-btn" class="arrow-btn" onclick="turnNext()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        const totalPages = pages.length;
+        let currentPage = 0;
+        
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        // Haptic feedback utility
+        function vibrate() {
+            if (navigator.vibrate) navigator.vibrate(20);
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage === totalPages - 1;
+        }
+
+        function turnNext() {
+            if (currentPage < totalPages - 1) {
+                vibrate();
+                pages[currentPage].classList.add('flipped');
+                currentPage++;
+                updateButtons();
+            }
+        }
+
+        function turnPrev() {
+            if (currentPage > 0) {
+                vibrate();
+                currentPage--;
+                pages[currentPage].classList.remove('flipped');
+                updateButtons();
+            }
+        }
+
+        // Fast-forward animation for Index Links
+        async function flipTo(targetPage) {
+            vibrate();
+            const delay = 120; // 120ms per page flip for the fast-forward effect
+            
+            // Disable buttons during animation
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+
+            if (targetPage > currentPage) {
+                while (currentPage < targetPage) {
+                    pages[currentPage].classList.add('flipped');
+                    currentPage++;
+                    await new Promise(r => setTimeout(r, delay));
+                }
+            } else if (targetPage < currentPage) {
+                while (currentPage > targetPage) {
+                    currentPage--;
+                    pages[currentPage].classList.remove('flipped');
+                    await new Promise(r => setTimeout(r, delay));
+                }
+            }
+            updateButtons();
+        }
+
+        // Keyboard navigation for desktop users
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') turnNext();
+            if (e.key === 'ArrowLeft') turnPrev();
+        });
+    </script>
+</body>
+</html>
