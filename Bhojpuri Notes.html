@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Grammar Reels Profile (Bhojpuri)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #fff;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: none;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .snap-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+            height: 100dvh;
+        }
+
+        .snap-item {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            height: 100vh;
+            height: 100dvh;
+        }
+
+        /* Instagram Gradient Ring */
+        .story-ring {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            padding: 3px;
+            border-radius: 50%;
+        }
+
+        /* Styled Tables for Reels */
+        .reel-content table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            font-size: 0.85rem;
+        }
+        
+        .reel-content th, .reel-content td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .reel-content th {
+            background: rgba(255, 255, 255, 0.15);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .reel-content tr:last-child td {
+            border-bottom: none;
+        }
+        .reel-content td:last-child, .reel-content th:last-child {
+            border-right: none;
+        }
+
+        .reel-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .reel-content h3 {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .examples-box, .tips-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #6366f1;
+            padding: 12px;
+            border-radius: 4px 8px 8px 4px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .tips-box {
+            border-left-color: #f59e0b;
+        }
+
+        .examples-box p, .tips-box p {
+            margin-bottom: 6px;
+        }
+        .examples-box p:last-child, .tips-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* SVG Icons */
+        .icon {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .icon-fill {
+            fill: currentColor;
+        }
+
+        /* Animation for liking */
+        @keyframes heart-burst {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); color: #ef4444; fill: #ef4444; }
+            100% { transform: scale(1); color: #ef4444; fill: #ef4444; }
+        }
+        .liked svg {
+            animation: heart-burst 0.3s ease-out forwards;
+            color: #ef4444;
+            fill: #ef4444;
+        }
+    </style>
+</head>
+<body class="flex justify-center bg-zinc-950">
+
+    <!-- Mobile App Container -->
+    <div class="w-full max-w-[400px] bg-black h-[100dvh] relative flex flex-col" id="profile-view">
+        
+        <!-- Header -->
+        <header class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 sticky top-0 bg-black z-30">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <h1 class="text-xl font-bold tracking-tight">saahil_english</h1>
+                <svg class="w-4 h-4 text-blue-500 fill-blue-500" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+            </div>
+            <div class="flex gap-4">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto no-scrollbar pb-20">
+            <!-- Profile Info -->
+            <div class="px-4 py-4">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="story-ring">
+                        <div class="w-20 h-20 bg-zinc-800 rounded-full border-4 border-black overflow-hidden flex items-center justify-center">
+                            <span class="text-4xl">👨‍🏫</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 justify-evenly text-center ml-6">
+                        <div>
+                            <div class="font-bold text-lg" id="post-count">0</div>
+                            <div class="text-xs text-zinc-400">Reels</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-lg">10.5K</div>
+                            <div class="text-xs text-zinc-400">Followers</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-lg">1</div>
+                            <div class="text-xs text-zinc-400">Following</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <h2 class="font-bold">Saahil | English Coach</h2>
+                    <p class="text-sm text-zinc-300 mt-1">📚 प्रैक्टिकल तरीका से अंग्रेजी सीखीं (भोजपुरी)</p>
+                    <p class="text-sm text-zinc-300">⚡️ ग्रामर नोट्स के रील्स जइसन स्वाइप करीं!</p>
+                    <p class="text-sm text-zinc-300 mt-1">📍 Mumbai, India</p>
+                    <a href="index.html" class="text-sm text-blue-400 font-medium">linktr.ee/saahilenglish</a>
+                </div>
+
+                <div class="flex gap-2">
+                    <button class="flex-1 bg-zinc-800 font-semibold py-1.5 rounded-lg text-sm">फॉलोइंग <svg class="inline w-3 h-3 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg></button>
+                    <button class="flex-1 bg-zinc-800 font-semibold py-1.5 rounded-lg text-sm">मैसेज</button>
+                    <button class="bg-zinc-800 font-semibold p-2 rounded-lg"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></button>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex border-t border-zinc-800">
+                <div class="flex-1 flex justify-center py-3 border-b-2 border-white text-white">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+                </div>
+                <div class="flex-1 flex justify-center py-3 text-zinc-500">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                </div>
+                <div class="flex-1 flex justify-center py-3 text-zinc-500">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+            </div>
+
+            <!-- Grid Content (Injected by Categories) -->
+            <div id="profile-grid" class="flex flex-col pb-4">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- Bottom Nav -->
+        <nav class="absolute bottom-0 w-full bg-black border-t border-zinc-900 flex justify-around py-3 pb-6 z-40">
+            <svg class="w-6 h-6 text-zinc-500 cursor-pointer hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" onclick="window.location.href='index.html'"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <svg class="w-6 h-6 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+            <svg class="w-6 h-6 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <div class="w-6 h-6 rounded-full bg-zinc-800 border border-white flex items-center justify-center text-xs">👨‍🏫</div>
+        </nav>
+
+    </div>
+
+    <!-- Fullscreen Reels Modal -->
+    <div id="reels-modal" class="fixed inset-0 z-50 bg-black hidden flex-col items-center justify-center">
+        <!-- Close Button -->
+        <button onclick="closeReels()" class="absolute top-4 left-4 z-50 p-2 bg-black/50 rounded-full backdrop-blur-md transition-transform active:scale-90">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        
+        <div class="absolute top-6 right-4 z-50">
+            <svg class="w-6 h-6 text-white drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+        </div>
+
+        <!-- Scroll Container -->
+        <div id="reels-container" class="w-full max-w-[400px] bg-zinc-900 h-[100dvh] relative snap-container no-scrollbar">
+            <!-- Reels injected here via JS -->
+        </div>
+    </div>
+
+    <script>
+        // MASSIVE Grammar Content Data Structure (BHOJPURI VERSION in Devanagari)
+        // -> gridTitle is exactly what the reel contains (shown on profile grid)
+        // -> title is the clear descriptive title (shown inside the reel)
+        const reelsData = [
+            // PRONOUNS
+            {
+                gridTitle: "Subject Pronouns",
+                title: "Subject Pronouns",
+                category: "Pronouns",
+                color: "from-indigo-900 to-slate-900",
+                content: `
+                    <h2>Subject Pronouns</h2>
+                    <h3>1. Subject Pronouns (काम करे वाला)</h3>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>I - हम</td><td>We - हमनी के</td></tr>
+                        <tr><td><b>2nd</b></td><td>You - तू / रउवा</td><td>You - रउवा सब / लोग</td></tr>
+                        <tr><td><b>3rd</b></td><td>He - ऊ<br>She - ऊ<br>It - ई</td><td>They - ऊ लोग / ओखनी के</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. <b>I</b> am learning English. - <b>हम</b> अंग्रेजी सीख रहल बानी।</p>
+                        <p>2. <b>She</b> is my friend. - <b>ऊ</b> हमार दोस्त बिया।</p>
+                        <p>3. <b>They</b> play cricket. - <b>ऊ लोग</b> क्रिकेट खेले ला।</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "Object Pronouns",
+                title: "Object Pronouns",
+                category: "Pronouns",
+                color: "from-blue-900 to-slate-900",
+                content: `
+                    <h2>Object Pronouns</h2>
+                    <h3>2. Object Pronouns (जेकरा पर काम होखे)</h3>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>Me - हमरा के</td><td>Us - हमनी के</td></tr>
+                        <tr><td><b>2nd</b></td><td>You - तोहरा के / रउवा के</td><td>You - रउवा सब के</td></tr>
+                        <tr><td><b>3rd</b></td><td>Him - ओकरा के<br>Her - ओकरा के<br>It - एकरा के</td><td>Them - ओखनी के</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. Rohit called <b>me</b>. - रोहित <b>हमरा के</b> बजवलस।</p>
+                        <p>2. I gave <b>him</b> a pen. - हम <b>ओकरा के</b> एगो पेन दिहनी।</p>
+                        <p>3. We saw <b>them</b> at the mall. - हमनी के <b>ओखनी के</b> मॉल में देखनी जा।</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "Possessive Adjectives",
+                title: "Possessive Adjectives",
+                category: "Pronouns",
+                color: "from-purple-900 to-slate-900",
+                content: `
+                    <h2>Possessive Adjectives</h2>
+                    <h3>3. Possessive Adjectives</h3>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>My - हमार</td><td>Our - हमनी के</td></tr>
+                        <tr><td><b>2nd</b></td><td>Your - तोहार / रउवा के</td><td>Your - रउवा सब के</td></tr>
+                        <tr><td><b>3rd</b></td><td>His - ओकर<br>Her - ओकर<br>Its - एकर</td><td>Their - ओखनी के</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. This is <b>my</b> book. - ई <b>हमार</b> किताब ह।</p>
+                        <p>2. Where is <b>your</b> bag? - <b>तोहार</b> झोला कहाँ बा?</p>
+                        <p>3. <b>Their</b> team won the match. - <b>ओखनी के</b> टीम मैच जीत गइल।</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "Reflexive Pronouns",
+                title: "Reflexive Pronouns",
+                category: "Pronouns",
+                color: "from-fuchsia-900 to-slate-900",
+                content: `
+                    <h2>Reflexive Pronouns</h2>
+                    <h3>4. Reflexive Pronouns (अपने आप)</h3>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>Myself - हम अपने</td><td>Ourselves - हमनी के अपने</td></tr>
+                        <tr><td><b>2nd</b></td><td>Yourself - तू अपने / रउवा अपने</td><td>Yourselves - रउवा सब अपने</td></tr>
+                        <tr><td><b>3rd</b></td><td>Himself - ऊ अपने<br>Herself - ऊ अपने<br>Itself - ई अपने</td><td>Themselves - ऊ लोग अपने</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. I will do this work <b>myself</b>. - हम ई काम <b>अपने</b> करब।</p>
+                        <p>2. She cooked the food <b>herself</b>. - ऊ खाना <b>अपने</b> बनवली।</p>
+                        <p>3. They fixed the car <b>themselves</b>. - ऊ लोग कार <b>अपने</b> ठीक कइलस।</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "Possessive Pronouns",
+                title: "Possessive Pronouns",
+                category: "Pronouns",
+                color: "from-pink-900 to-slate-900",
+                content: `
+                    <h2>Possessive Pronouns</h2>
+                    <h3>5. Possessive Pronouns</h3>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>Mine - हमार ह</td><td>Ours - हमनी के ह</td></tr>
+                        <tr><td><b>2nd</b></td><td>Yours - तोहार ह / रउवा के ह</td><td>Yours - रउवा सब के ह</td></tr>
+                        <tr><td><b>3rd</b></td><td>His - ओकर ह<br>Hers - ओकर ह<br>Its - एकर ह</td><td>Theirs - ओखनी के ह</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. This pen is <b>mine</b>. - ई पेन <b>हमार ह</b>।</p>
+                        <p>2. That house is <b>theirs</b>. - ऊ घर <b>ओखनी के ह</b>।</p>
+                        <p>3. The victory is <b>ours</b>. - जीत <b>हमनी के ह</b>।</p>
+                    </div>
+                `
+            },
+
+            // VERB FORMS
+            {
+                gridTitle: "The 5 Verb Forms",
+                title: "The 5 Verb Forms",
+                category: "Verbs",
+                color: "from-emerald-900 to-slate-900",
+                content: `
+                    <h2>The 5 Verb Forms</h2>
+                    <h3>1. The 5 Forms of a Verb</h3>
+                    <table>
+                        <tr><th>Form</th><th>Name in English</th></tr>
+                        <tr><td><b>V1</b></td><td>Base / Plural Present</td></tr>
+                        <tr><td><b>V2</b></td><td>Past Tense</td></tr>
+                        <tr><td><b>V3</b></td><td>Past Participle</td></tr>
+                        <tr><td><b>V4</b></td><td>Gerund (-ing)</td></tr>
+                        <tr><td><b>V5</b></td><td>Singular Present (-s / -es)</td></tr>
+                    </table>
+                    <div class="tips-box">
+                        <p>💡 <b>Saahil's Tips:</b></p>
+                        <p>• <b>V4 कैसे बनायें?</b> V1 के आगे बस <b>-ing</b> लगा दीं। <i>(Playing)</i></p>
+                        <p>• <b>V5 कैसे बनायें?</b> V1 के आगे <b>-s / -es</b> लगा दीं। <i>(Plays)</i></p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "Main Verbs (Reg/Irr)",
+                title: "Main Verbs",
+                category: "Verbs",
+                color: "from-teal-900 to-slate-900",
+                content: `
+                    <h2>Main Verbs</h2>
+                    <h3>2. Main Verbs</h3>
+                    <table>
+                        <tr><th>Form</th><th>Regular</th><th>Irregular</th></tr>
+                        <tr><td><b>V1</b></td><td>Play</td><td>Write</td></tr>
+                        <tr><td><b>V2</b></td><td>Played</td><td>Wrote</td></tr>
+                        <tr><td><b>V3</b></td><td>Played</td><td>Written</td></tr>
+                        <tr><td><b>V4</b></td><td>Playing</td><td>Writing</td></tr>
+                        <tr><td><b>V5</b></td><td>Plays</td><td>Writes</td></tr>
+                    </table>
+                    <div class="tips-box">
+                        <p>💡 <b>V2 आ V3 कैसे याद रखीं?</b></p>
+                        <p>• <b>Regular Verbs:</b> इहाँ बस <b>-ed</b> लगावे के होला।</p>
+                        <p>• <b>Irregular Verbs:</b> एकर कवनो ट्रिक नइखे, ई याद करे के ही पड़ी!</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "Helping Verbs",
+                title: "Helping Verbs",
+                category: "Verbs",
+                color: "from-cyan-900 to-slate-900",
+                content: `
+                    <h2>Helping Verbs</h2>
+                    <h3>3. Helping Verbs</h3>
+                    <table>
+                        <tr><th>Form</th><th>To Be</th><th>To Have</th><th>To Do</th></tr>
+                        <tr><td><b>V1</b></td><td>be, am, are</td><td>have</td><td>do</td></tr>
+                        <tr><td><b>V2</b></td><td>was, were</td><td>had</td><td>did</td></tr>
+                        <tr><td><b>V3</b></td><td>been</td><td>had</td><td>done</td></tr>
+                        <tr><td><b>V4</b></td><td>being</td><td>having</td><td>doing</td></tr>
+                        <tr><td><b>V5</b></td><td>is</td><td>has</td><td>does</td></tr>
+                    </table>
+                `
+            },
+
+            // S FORM RULES
+            {
+                gridTitle: "S Form Rules",
+                title: "S Form Rules",
+                category: "Rules",
+                color: "from-rose-900 to-slate-900",
+                content: `
+                    <h2>S Form Rules</h2>
+                    <h3>S Form Rules (Making V5)</h3>
+                    <p class="text-sm text-zinc-300 mb-3">जहिया रउवा के V5 verb बनावे के होखे, त आमतौर पर <b>'s'</b> लगावल जाला। बाकिर आखिरी अक्षर के हिसाब से स्पेलिंग के नियम बदल जाला:</p>
+                    <table>
+                        <tr><th>Ending</th><th>Step</th><th>Word</th><th>V5 Form</th></tr>
+                        <tr><td><b>ch</b></td><td>+ es</td><td>Watch</td><td>Watches</td></tr>
+                        <tr><td><b>sh</b></td><td>+ es</td><td>Wash</td><td>Washes</td></tr>
+                        <tr><td><b>s</b></td><td>+ es</td><td>Class</td><td>Classes</td></tr>
+                        <tr><td><b>z</b></td><td>+ es</td><td>Buzz</td><td>Buzzes</td></tr>
+                        <tr><td><b>x</b></td><td>+ es</td><td>Fix</td><td>Fixes</td></tr>
+                        <tr><td><b>o</b></td><td>+ es</td><td>Go</td><td>Goes</td></tr>
+                        <tr><td><b>fe / f</b></td><td><del>f</del> + ves</td><td>Knife</td><td>Knives</td></tr>
+                        <tr><td><b>Vow + y</b></td><td>+ s</td><td>Play</td><td>Plays</td></tr>
+                        <tr><td><b>Con + y</b></td><td><del>y</del> + ies</td><td>Try</td><td>Tries</td></tr>
+                    </table>
+                `
+            },
+
+            // CONJUGATION
+            {
+                gridTitle: "When to use 'S Form'",
+                title: "Conjugation Rules",
+                category: "Conjugation",
+                color: "from-amber-900 to-slate-900",
+                content: `
+                    <h2>Conjugation Rules</h2>
+                    <h3>1. When to apply the "S Form"</h3>
+                    <p class="text-sm text-zinc-300 mb-4">हमनी के "S Form" (plays, is, has, does) के इस्तेमाल <i>सिर्फ</i> तब करीला जा जब Subject <b>3rd Person Singular</b> होखे।</p>
+                    <table>
+                        <tr><th>Apply "S Form"?</th><th>Pronoun</th><th>Noun (Names)</th></tr>
+                        <tr><td><b>Yes</b></td><td>He / She / It</td><td>Saahil <i>(Single)</i></td></tr>
+                        <tr><td><b>No</b></td><td>I, You, We, They</td><td>Saahil & Ramesh <i>(Plural)</i></td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. <b>He</b> plays cricket. <i>(S Form)</i></p>
+                        <p>2. <b>They</b> play cricket. <i>(No S Form)</i></p>
+                        <p>3. <b>Saahil</b> teaches English. <i>(S Form)</i></p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "To Be (Present)",
+                title: "To Be (Present)",
+                category: "Conjugation",
+                color: "from-orange-900 to-slate-900",
+                content: `
+                    <h2>To Be (Present)</h2>
+                    <h3>2. To Be (Present)</h3>
+                    <p class="text-sm text-zinc-300 mb-4">ई वर्तमान (Present) के स्थिति भा पहचान बतावे ला।</p>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>I am</td><td>We are</td></tr>
+                        <tr><td><b>2nd</b></td><td>You are</td><td>You are</td></tr>
+                        <tr><td><b>3rd</b></td><td>He / She / It is</td><td>They are</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. <b>I am</b> a student. - <b>हम</b> एगो छात्र <b>बानी</b>।</p>
+                        <p>2. <b>She is</b> happy. - <b>ऊ</b> खुश <b>बिया</b>।</p>
+                        <p>3. <b>We are</b> ready. - <b>हमनी के</b> तैयार <b>बानी जा</b>।</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "To Have (Present)",
+                title: "To Have (Present)",
+                category: "Conjugation",
+                color: "from-yellow-900 to-slate-900",
+                content: `
+                    <h2>To Have (Present)</h2>
+                    <h3>3. To Have (Present)</h3>
+                    <p class="text-sm text-zinc-300 mb-4">ई वर्तमान में कवनों चीज के पास होखे (possession) के बतावे ला।</p>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>I have</td><td>We have</td></tr>
+                        <tr><td><b>2nd</b></td><td>You have</td><td>You have</td></tr>
+                        <tr><td><b>3rd</b></td><td>He / She / It has</td><td>They have</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. <b>I have</b> a car. - <b>हमार पास</b> एगो कार <b>बा</b>।</p>
+                        <p>2. <b>He has</b> a laptop. - <b>ओकरा पास</b> एगो लैपटॉप <b>बा</b>।</p>
+                        <p>3. <b>They have</b> time. - <b>ओखनी के पास</b> समय <b>बा</b>।</p>
+                    </div>
+                `
+            },
+            {
+                gridTitle: "To Be (Past)",
+                title: "To Be (Past)",
+                category: "Conjugation",
+                color: "from-lime-900 to-slate-900",
+                content: `
+                    <h2>To Be (Past)</h2>
+                    <h3>4. To Be (Past)</h3>
+                    <p class="text-sm text-zinc-300 mb-4">ई बीतल समय (Past) के स्थिति भा पहचान बतावे ला।</p>
+                    <table>
+                        <tr><th>Person</th><th>Singular</th><th>Plural</th></tr>
+                        <tr><td><b>1st</b></td><td>I was</td><td>We were</td></tr>
+                        <tr><td><b>2nd</b></td><td>You were</td><td>You were</td></tr>
+                        <tr><td><b>3rd</b></td><td>He / She / It was</td><td>They were</td></tr>
+                    </table>
+                    <div class="examples-box">
+                        <p>1. <b>I was</b> busy. - <b>हम</b> व्यस्त <b>रहनी</b>।</p>
+                        <p>2. <b>You were</b> late. - <b>तू</b> लेट <b>रहलऽ</b>।</p>
+                        <p>3. <b>They were</b> friends. - <b>ऊ लोग</b> दोस्त <b>रहे</b>।</p>
+                    </div>
+                `
+            },
+
+            // TENSES
+            {
+                gridTitle: "Simple Tenses Overview",
+                title: "Simple Tenses Overview",
+                category: "Simple Tenses",
+                color: "from-sky-900 to-slate-900",
+                content: `
+                    <h2>Simple Tenses</h2>
+                    <h3>1. Simple Tenses Overview</h3>
+                    <p class="text-sm text-zinc-300 mb-4">Simple Tenses में आदत, सच्चाई भा एक बार भइल काम के बात होला।</p>
+                    <table>
+                        <tr><th>Name</th><th>Formula</th><th>Bhojpuri Identity</th></tr>
+                        <tr><td><b>Simple Past</b></td><td>V2</td><td>कइलस / कइनी</td></tr>
+                        <tr><td><b>Simple Present</b></td><td>V1 / V5</td><td>करे ला</td></tr>
+                        <tr><td><b>Simple Future</b></td><td>Will + V1</td><td>करी</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Simple Present Ex.",
+                title: "Simple Present Examples",
+                category: "Simple Tenses",
+                color: "from-sky-800 to-slate-900",
+                content: `
+                    <h2>Simple Present</h2>
+                    <h3>Simple Present Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil plays cricket.</td><td>साहिल क्रिकेट खेले ला।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>Saahil does not play.</td><td>साहिल क्रिकेट ना खेले ला।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Does Saahil play?</td><td>का साहिल क्रिकेट खेले ला?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Does he not play?</td><td>का साहिल क्रिकेट ना खेले ला?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Why does he play?</td><td>साहिल क्रिकेट काहें खेले ला?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why does he not play?</td><td>साहिल क्रिकेट काहें ना खेले ला?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Simple Past Ex.",
+                title: "Simple Past Examples",
+                category: "Simple Tenses",
+                color: "from-sky-950 to-slate-900",
+                content: `
+                    <h2>Simple Past</h2>
+                    <h3>Simple Past Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil played cricket.</td><td>साहिल क्रिकेट खेललस।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>Saahil did not play.</td><td>साहिल क्रिकेट ना खेललस।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Did Saahil play?</td><td>का साहिल क्रिकेट खेललस?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Did he not play?</td><td>का साहिल क्रिकेट ना खेललस?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Where did he play?</td><td>साहिल क्रिकेट कहाँ खेललस?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why did he not play?</td><td>साहिल क्रिकेट काहें ना खेललस?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Simple Future Ex.",
+                title: "Simple Future Examples",
+                category: "Simple Tenses",
+                color: "from-blue-800 to-slate-900",
+                content: `
+                    <h2>Simple Future</h2>
+                    <h3>Simple Future Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil will play.</td><td>साहिल क्रिकेट खेली।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>Saahil will not play.</td><td>साहिल क्रिकेट ना खेली।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Will Saahil play?</td><td>का साहिल क्रिकेट खेली?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Will he not play?</td><td>का साहिल क्रिकेट ना खेली?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>When will he play?</td><td>साहिल क्रिकेट कब खेली?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why will he not play?</td><td>साहिल क्रिकेट काहें ना खेली?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Continuous Overview",
+                title: "Continuous Tenses Overview",
+                category: "Continuous Tenses",
+                color: "from-indigo-800 to-slate-900",
+                content: `
+                    <h2>Continuous Tenses</h2>
+                    <h3>2. Continuous Tenses Overview</h3>
+                    <p class="text-sm text-zinc-300 mb-4">Continuous माने काम चल रहल बा। एहमे हमेशा <b>'रहल'</b> आवे ला, एहसे English में हमेशा <b>V4 (-ing)</b> के इस्तेमाल होला।</p>
+                    <table>
+                        <tr><th>Name</th><th>Formula</th><th>Bhojpuri Identity</th></tr>
+                        <tr><td><b>Past Cont.</b></td><td>Was/Were + V4</td><td>कर रहल रहे</td></tr>
+                        <tr><td><b>Present Cont.</b></td><td>Is/Am/Are + V4</td><td>कर रहल बा</td></tr>
+                        <tr><td><b>Future Cont.</b></td><td>Will be + V4</td><td>कर रहल होई</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Present Continuous Ex.",
+                title: "Present Continuous Examples",
+                category: "Continuous Tenses",
+                color: "from-indigo-950 to-slate-900",
+                content: `
+                    <h2>Present Continuous</h2>
+                    <h3>Present Continuous Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil is playing.</td><td>साहिल क्रिकेट खेल रहल बा।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>Saahil is not playing.</td><td>साहिल क्रिकेट नइखे खेल रहल।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Is Saahil playing?</td><td>का साहिल क्रिकेट खेल रहल बा?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Is he not playing?</td><td>का साहिल क्रिकेट नइखे खेल रहल?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Why is he playing?</td><td>साहिल क्रिकेट काहें खेल रहल बा?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why is he not playing?</td><td>साहिल क्रिकेट काहें नइखे खेल रहल?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Past Continuous Ex.",
+                title: "Past Continuous Examples",
+                category: "Continuous Tenses",
+                color: "from-purple-800 to-slate-900",
+                content: `
+                    <h2>Past Continuous</h2>
+                    <h3>Past Continuous Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil was playing.</td><td>साहिल क्रिकेट खेल रहल रहे।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>He was not playing.</td><td>साहिल क्रिकेट ना खेल रहल रहे।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Was Saahil playing?</td><td>का साहिल क्रिकेट खेल रहल रहे?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Was he not playing?</td><td>का साहिल क्रिकेट ना खेल रहल रहे?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Where was he playing?</td><td>साहिल क्रिकेट कहाँ खेल रहल रहे?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why was he not playing?</td><td>साहिल क्रिकेट काहें ना खेल रहल रहे?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Future Continuous Ex.",
+                title: "Future Continuous Examples",
+                category: "Continuous Tenses",
+                color: "from-fuchsia-800 to-slate-900",
+                content: `
+                    <h2>Future Continuous</h2>
+                    <h3>Future Continuous Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil will be playing.</td><td>साहिल क्रिकेट खेल रहल होई।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>He will not be playing.</td><td>साहिल क्रिकेट ना खेल रहल होई।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Will he be playing?</td><td>का साहिल क्रिकेट खेल रहल होई?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Will he not be playing?</td><td>का साहिल क्रिकेट ना खेल रहल होई?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Where will he be playing?</td><td>साहिल क्रिकेट कहाँ खेल रहल होई?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why will he not be playing?</td><td>साहिल क्रिकेट काहें ना खेल रहल होई?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Perfect Tenses Overview",
+                title: "Perfect Tenses Overview",
+                category: "Perfect Tenses",
+                color: "from-violet-800 to-slate-900",
+                content: `
+                    <h2>Perfect Tenses</h2>
+                    <h3>3. Perfect Tenses Overview</h3>
+                    <p class="text-sm text-zinc-300 mb-4">Perfect माने काम 100% पूरा हो गइल बा। एहमे हमेशा <b>'चुकल / लिहल'</b> आवे ला, एहसे English में हमेशा <b>V3 (3rd form)</b> के इस्तेमाल होला।</p>
+                    <table>
+                        <tr><th>Name</th><th>Formula</th><th>Bhojpuri Identity</th></tr>
+                        <tr><td><b>Past Perfect</b></td><td>Had + V3</td><td>कर चुकल रहे</td></tr>
+                        <tr><td><b>Present Perfect</b></td><td>Has/Have + V3</td><td>कर चुकल बा</td></tr>
+                        <tr><td><b>Future Perfect</b></td><td>Will have + V3</td><td>कर चुकल होई</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Present Perfect Ex.",
+                title: "Present Perfect Examples",
+                category: "Perfect Tenses",
+                color: "from-violet-950 to-slate-900",
+                content: `
+                    <h2>Present Perfect</h2>
+                    <h3>Present Perfect Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil has played.</td><td>साहिल क्रिकेट खेल चुकल बा।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>Saahil has not played.</td><td>साहिल क्रिकेट नइखे खेलल।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Has Saahil played?</td><td>का साहिल क्रिकेट खेल चुकल बा?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Has he not played?</td><td>का साहिल क्रिकेट नइखे खेलल?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>How has he played?</td><td>साहिल क्रिकेट कइसे खेलले बा?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why has he not played?</td><td>साहिल क्रिकेट काहें नइखे खेलल?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Past Perfect Ex.",
+                title: "Past Perfect Examples",
+                category: "Perfect Tenses",
+                color: "from-purple-950 to-slate-900",
+                content: `
+                    <h2>Past Perfect</h2>
+                    <h3>Past Perfect Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil had played.</td><td>साहिल क्रिकेट खेल चुकल रहे।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>Saahil had not played.</td><td>साहिल क्रिकेट ना खेलले रहे।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Had Saahil played?</td><td>का साहिल क्रिकेट खेल चुकल रहे?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Had he not played?</td><td>का साहिल क्रिकेट ना खेलले रहे?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Why had he played?</td><td>साहिल क्रिकेट काहें खेलले रहे?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why had he not played?</td><td>साहिल क्रिकेट काहें ना खेलले रहे?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Future Perfect Ex.",
+                title: "Future Perfect Examples",
+                category: "Perfect Tenses",
+                color: "from-fuchsia-950 to-slate-900",
+                content: `
+                    <h2>Future Perfect</h2>
+                    <h3>Future Perfect Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>Saahil will have played.</td><td>साहिल क्रिकेट खेल चुकल होई।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>He will not have played.</td><td>साहिल क्रिकेट ना खेलले होई।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Will he have played?</td><td>का साहिल क्रिकेट खेल चुकल होई?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Will he not have played?</td><td>का साहिल क्रिकेट ना खेलले होई?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Where will he have played?</td><td>साहिल क्रिकेट कहाँ खेल चुकल होई?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why will he not have played?</td><td>साहिल क्रिकेट काहें ना खेलले होई?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Perf. Cont. Overview",
+                title: "Perfect Continuous Overview",
+                category: "Perfect Continuous",
+                color: "from-pink-800 to-slate-900",
+                content: `
+                    <h2>Perfect Continuous Tenses</h2>
+                    <h3>4. Perfect Continuous Tenses</h3>
+                    <p class="text-sm text-zinc-300 mb-4">काम पहिले शुरू भइल रहे आ एगो समय से लगातार चलल आ रहल बा। एहमे <b>'करत आ रहल'</b> के पहचान होला आ <b>V4 (-ing)</b> लागे ला।</p>
+                    <table>
+                        <tr><th>Name</th><th>Formula</th><th>Bhojpuri Identity</th></tr>
+                        <tr><td><b>Past Perf. Cont.</b></td><td>Had been + V4</td><td>करत आ रहल रहे</td></tr>
+                        <tr><td><b>Pres. Perf. Cont.</b></td><td>Has/Have been + V4</td><td>करत आ रहल बा</td></tr>
+                        <tr><td><b>Fut. Perf. Cont.</b></td><td>Will have been + V4</td><td>करत आ रहल होई</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Pres. Perf. Cont. Ex.",
+                title: "Present Perfect Continuous",
+                category: "Perfect Continuous",
+                color: "from-pink-950 to-slate-900",
+                content: `
+                    <h2>Present Perfect Continuous</h2>
+                    <h3>Present Perfect Cont. Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>He has been playing.</td><td>ऊ क्रिकेट खेलत आ रहल बा।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>He has not been playing.</td><td>ऊ क्रिकेट ना खेलत आ रहल बा।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Has he been playing?</td><td>का ऊ क्रिकेट खेलत आ रहल बा?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Has he not been playing?</td><td>का ऊ क्रिकेट ना खेलत आ रहल बा?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>How long has he been playing?</td><td>ऊ कब से क्रिकेट खेल रहल बा?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why has he not been playing?</td><td>ऊ काहें ना खेलत आ रहल बा?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Past Perf. Cont. Ex.",
+                title: "Past Perfect Continuous",
+                category: "Perfect Continuous",
+                color: "from-rose-800 to-slate-900",
+                content: `
+                    <h2>Past Perfect Continuous</h2>
+                    <h3>Past Perfect Cont. Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>He had been playing.</td><td>ऊ क्रिकेट खेलत आ रहल रहे।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>He had not been playing.</td><td>ऊ क्रिकेट ना खेलत आ रहल रहे।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Had he been playing?</td><td>का ऊ क्रिकेट खेलत आ रहल रहे?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Had he not been playing?</td><td>का ऊ क्रिकेट ना खेलत आ रहल रहे?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>Why had he been playing?</td><td>ऊ काहें क्रिकेट खेलत आ रहल रहे?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why had he not been playing?</td><td>ऊ काहें ना खेलत आ रहल रहे?</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Fut. Perf. Cont. Ex.",
+                title: "Future Perfect Continuous",
+                category: "Perfect Continuous",
+                color: "from-rose-950 to-slate-900",
+                content: `
+                    <h2>Future Perfect Continuous</h2>
+                    <h3>Future Perfect Cont. Examples</h3>
+                    <table>
+                        <tr><th>Type</th><th>English</th><th>Bhojpuri</th></tr>
+                        <tr><td><b>(+) Pos</b></td><td>He will have been playing.</td><td>ऊ क्रिकेट खेलत आ रहल होई।</td></tr>
+                        <tr><td><b>(-) Neg</b></td><td>He will not have been playing.</td><td>ऊ क्रिकेट ना खेलत आ रहल होई।</td></tr>
+                        <tr><td><b>(+Q1) Y/N</b></td><td>Will he have been playing?</td><td>का ऊ क्रिकेट खेलत आ रहल होई?</td></tr>
+                        <tr><td><b>(-Q1) Y/N</b></td><td>Will he not have been playing?</td><td>का ऊ क्रिकेट ना खेलत आ रहल होई?</td></tr>
+                        <tr><td><b>(+Q2) Wh-</b></td><td>How long will he have been playing?</td><td>ऊ कब तक क्रिकेट खेलत रही?</td></tr>
+                        <tr><td><b>(-Q2) Wh-</b></td><td>Why will he not have been playing?</td><td>ऊ काहें ना खेलत आ रहल होई?</td></tr>
+                    </table>
+                `
+            },
+
+            // ACTIVE & PASSIVE VOICE
+            {
+                gridTitle: "Active vs Passive",
+                title: "Active vs Passive Voice",
+                category: "Voice",
+                color: "from-orange-800 to-slate-900",
+                content: `
+                    <h2>Active vs Passive Voice</h2>
+                    <h3>1. Active vs Passive Identification</h3>
+                    <div class="tips-box mb-4">
+                        <p>1. वाक्य में काम (Verb) खोजीं।</p>
+                        <p>2. सवाल पूछीं: <b>"ई काम के कइलस?"</b></p>
+                        <p>3. जवाब अगर <b>शुरू में</b> बा = <b>Active</b></p>
+                        <p>4. जवाब अगर अंत में बा भा नइखे = <b>Passive</b></p>
+                    </div>
+                    <table>
+                        <tr><th>Voice</th><th>Sentence</th></tr>
+                        <tr><td><b>Active</b></td><td><b>Rahul</b> broke the window.</td></tr>
+                        <tr><td><b>Passive</b></td><td>The window was broken <b>by Rahul</b>.</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Passive Verbs (V3)",
+                title: "Passive Voice Verbs",
+                category: "Voice",
+                color: "from-amber-800 to-slate-900",
+                content: `
+                    <h2>Passive Voice Verbs</h2>
+                    <h3>2. Passive में Tense कइसे पहचानीं?</h3>
+                    <p class="text-sm text-zinc-300 mb-4">Passive Voice में Main Verb हमेशा <b>V3 (Third Form)</b> में रहे ला! Tense के पहचान खाली Helping Verb से होला:</p>
+                    <table>
+                        <tr><th>Tense</th><th>Passive Helping Verb (Before V3)</th></tr>
+                        <tr><td><b>Simp. Present</b></td><td>is / am / are</td></tr>
+                        <tr><td><b>Simp. Past</b></td><td>was / were</td></tr>
+                        <tr><td><b>Simp. Future</b></td><td>will be</td></tr>
+                        <tr><td><b>Pres. Cont.</b></td><td>is/am/are + <b>being</b></td></tr>
+                        <tr><td><b>Past Cont.</b></td><td>was/were + <b>being</b></td></tr>
+                        <tr><td><b>Pres. Perf.</b></td><td>has/have + <b>been</b></td></tr>
+                        <tr><td><b>Past Perf.</b></td><td>had + <b>been</b></td></tr>
+                        <tr><td><b>Future Perf.</b></td><td>will have + <b>been</b></td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Conversion Rules",
+                title: "Conversion Rules",
+                category: "Voice",
+                color: "from-yellow-800 to-slate-900",
+                content: `
+                    <h2>Conversion Rules</h2>
+                    <h3>3. Active से Passive में बदले के 4 Steps</h3>
+                    <div class="tips-box mb-4">
+                        <p>1. <b>Object</b> के नया Subject बनाईं।</p>
+                        <p>2. नया <b>Helping Verb</b> लगाईं (Tense Table के हिसाब से)।</p>
+                        <p>3. Verb के <b>V3</b> में बदलीं। (हमेशा V3!)</p>
+                        <p>4. <b>By + Subject:</b> पुरान Subject के पहिले 'by' लगाईं।</p>
+                    </div>
+                    <p class="text-sm font-bold text-white mb-2">Pronoun Conversion (Subject ➔ Object)</p>
+                    <table>
+                        <tr><th>Active (Subject)</th><th>Passive (by + Object)</th></tr>
+                        <tr><td>I</td><td>by me</td></tr>
+                        <tr><td>We</td><td>by us</td></tr>
+                        <tr><td>You</td><td>by you</td></tr>
+                        <tr><td>He</td><td>by him</td></tr>
+                        <tr><td>She</td><td>by her</td></tr>
+                        <tr><td>They</td><td>by them</td></tr>
+                    </table>
+                `
+            },
+            {
+                gridTitle: "Conversion Examples",
+                title: "Conversion Examples",
+                category: "Voice",
+                color: "from-lime-800 to-slate-900",
+                content: `
+                    <h2>Conversion Examples</h2>
+                    <h3>4. Conversion Examples</h3>
+                    <table>
+                        <tr><th>Tense</th><th>Active Voice (Doer first)</th><th>Passive Voice (Receiver first)</th></tr>
+                        <tr><td><b>Simp. Present</b></td><td>I eat an apple.</td><td>An apple <b>is eaten</b> by me.</td></tr>
+                        <tr><td><b>Simp. Past</b></td><td>I ate an apple.</td><td>An apple <b>was eaten</b> by me.</td></tr>
+                        <tr><td><b>Simp. Future</b></td><td>I will eat an apple.</td><td>An apple <b>will be eaten</b> by me.</td></tr>
+                        <tr><td><b>Pres. Cont.</b></td><td>She is cooking food.</td><td>Food is <b>being cooked</b> by her.</td></tr>
+                        <tr><td><b>Past Cont.</b></td><td>She was cooking food.</td><td>Food was <b>being cooked</b> by her.</td></tr>
+                        <tr><td><b>Pres. Perf.</b></td><td>They have won the match.</td><td>The match has <b>been won</b> by them.</td></tr>
+                        <tr><td><b>Past Perf.</b></td><td>They had won the match.</td><td>The match had <b>been won</b> by them.</td></tr>
+                    </table>
+                `
+            }
+        ];
+
+        const postCount = document.getElementById('post-count');
+        postCount.innerText = reelsData.length;
+
+        // --- Render the Profile Grid Categorized by Chapters ---
+        const gridContainer = document.getElementById('profile-grid');
+        
+        // Group reels by category
+        const groupedData = {};
+        reelsData.forEach((reel, originalIndex) => {
+            if (!groupedData[reel.category]) {
+                groupedData[reel.category] = [];
+            }
+            groupedData[reel.category].push({ ...reel, originalIndex });
+        });
+
+        // Loop through each category to build the UI dividers and grid
+        for (const category in groupedData) {
+            // Category Header Divider
+            const divider = document.createElement('div');
+            divider.className = "bg-zinc-900 border-t border-b border-zinc-800 px-4 py-2 mt-6 mb-0.5 flex items-center";
+            divider.innerHTML = `<span class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">${category} Chapter</span>`;
+            gridContainer.appendChild(divider);
+
+            // Grid for this specific category
+            const categoryGrid = document.createElement('div');
+            categoryGrid.className = "grid grid-cols-3 gap-0.5";
+
+            groupedData[category].forEach(reel => {
+                const gridItem = document.createElement('div');
+                gridItem.className = `aspect-[3/4] bg-gradient-to-br ${reel.color} relative cursor-pointer flex flex-col justify-end p-2 border-[0.5px] border-black hover:opacity-90 transition-opacity`;
+                // Open modal mapping to the absolute index so reel scrolling is seamless
+                gridItem.onclick = () => openReels(reel.originalIndex);
+                
+                gridItem.innerHTML = `
+                    <div class="absolute top-2 right-2">
+                        <svg class="w-4 h-4 text-white drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                    </div>
+                    <!-- Display the precise descriptive title on the grid -->
+                    <div class="text-xs font-bold text-white drop-shadow-md leading-tight mt-1 line-clamp-3">${reel.gridTitle}</div>
+                    <div class="flex items-center gap-1 mt-1 text-[10px] text-white opacity-80">
+                        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> 10K
+                    </div>
+                `;
+                categoryGrid.appendChild(gridItem);
+            });
+            
+            gridContainer.appendChild(categoryGrid);
+        }
+
+        // --- Render the Reels inside the Modal ---
+        const reelsContainer = document.getElementById('reels-container');
+        
+        reelsData.forEach((reel, index) => {
+            const reelElement = document.createElement('div');
+            reelElement.className = `snap-item w-full relative bg-gradient-to-b ${reel.color} flex flex-col`;
+            
+            reelElement.innerHTML = `
+                <!-- Content Area -->
+                <div class="flex-1 flex flex-col justify-center px-4 pr-16 pt-12 pb-24 reel-content relative z-10">
+                    ${reel.content}
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="absolute right-2 bottom-28 flex flex-col items-center gap-5 z-20">
+                    <button class="flex flex-col items-center gap-1 group like-btn" onclick="toggleLike(this)">
+                        <svg class="icon transition-transform active:scale-75" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <span class="text-xs font-medium">10.5K</span>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 transition-transform active:scale-75">
+                        <svg class="icon icon-fill" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        <span class="text-xs font-medium">402</span>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 transition-transform active:scale-75">
+                        <svg class="icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        <span class="text-xs font-medium">Share</span>
+                    </button>
+                    <button class="flex flex-col items-center gap-1 transition-transform active:scale-75 mt-2">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                    </button>
+                    
+                    <!-- Audio Track Icon -->
+                    <div class="w-8 h-8 rounded-lg bg-zinc-800 border-2 border-white mt-4 overflow-hidden animate-[spin_4s_linear_infinite] flex items-center justify-center">
+                        <span class="text-xs">🎵</span>
+                    </div>
+                </div>
+
+                <!-- Bottom User Info -->
+                <div class="absolute bottom-4 left-4 right-16 z-20">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-600 flex items-center justify-center text-sm">👨‍🏫</div>
+                        <span class="font-semibold text-sm drop-shadow-md">saahil_english</span>
+                        <button class="border border-white px-2 py-0.5 rounded-md text-xs font-semibold ml-1 drop-shadow-md">Follow</button>
+                    </div>
+                    <!-- Using the clear title as the caption text -->
+                    <p class="text-sm line-clamp-2 drop-shadow-md font-bold mb-1">${reel.title}</p>
+                    <p class="text-xs line-clamp-1 drop-shadow-md text-zinc-300">ग्रामर जल्दी सीखे खातिर एकरा के सेव करीं! #english #grammar #${reel.category.toLowerCase().replace(/\s+/g, '')}</p>
+                    
+                    <!-- Scrolling Audio Text -->
+                    <div class="flex items-center gap-2 mt-2 text-xs text-zinc-100 drop-shadow-md overflow-hidden">
+                        <svg class="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                        <marquee scrollamount="3" class="w-40">saahil_english • Original Audio - Learn Grammar</marquee>
+                    </div>
+                </div>
+                
+                <!-- Dark gradient overlay at bottom for text readability -->
+                <div class="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"></div>
+            `;
+            
+            reelsContainer.appendChild(reelElement);
+        });
+
+        // Interactions
+        function openReels(index) {
+            document.getElementById('reels-modal').style.display = 'flex';
+            // Wait for display to apply before scrolling
+            setTimeout(() => {
+                const targetReel = reelsContainer.children[index];
+                if(targetReel) {
+                    targetReel.scrollIntoView({ behavior: 'instant' });
+                }
+            }, 10);
+        }
+
+        function closeReels() {
+            document.getElementById('reels-modal').style.display = 'none';
+        }
+
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+            if(navigator.vibrate) navigator.vibrate(50);
+        }
+    </script>
+</body>
+</html>
